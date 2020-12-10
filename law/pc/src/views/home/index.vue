@@ -6,7 +6,8 @@
     </keep-alive>
     <!-- <law-footer :data="commonPublic.footer"></law-footer> -->
     <law-footer :data="commonPublic.condition"></law-footer>
-    <common-right-menu></common-right-menu>
+    <!-- <common-right-menu></common-right-menu> -->
+    <common-bottom-consult></common-bottom-consult>
     <common-scroll-top></common-scroll-top>
   </section>
 </template>

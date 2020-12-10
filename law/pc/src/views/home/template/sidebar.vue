@@ -9,7 +9,7 @@
       <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
       <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
     </swiper>
-    <div class="new">
+    <!-- <div class="new">
       <div class="left">
         <div class="title">{{homeData.news_title}}</div>
         <ul>
@@ -43,7 +43,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 </template>
 

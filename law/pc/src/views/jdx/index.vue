@@ -28,7 +28,8 @@
       </swiper-slide>
       <!-- <div class="swiper-pagination" slot="pagination"></div> -->
     </swiper>
-    <common-right-menu></common-right-menu>
+    <!-- <common-right-menu></common-right-menu> -->
+    <common-bottom-consult></common-bottom-consult>
   </section>
 </template>
 
