@@ -24,6 +24,14 @@
           <img alt src="../../../assets/images/common/wechat.jpg" />
           <p>微信公众号</p>
         </div>
+        <div class="img">
+          <img alt src="../../../assets/images/common/001.jpg" />
+          <p>抖音号</p>
+        </div>
+        <div class="img">
+          <img alt src="../../../assets/images/common/002.jpg" />
+          <p>牛犇请你演电影</p>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -94,6 +102,7 @@ export default {
       width: 110px;
       height: 110px;
       text-align: center;
+      margin-left: 20px;
       img {
         width: 110px;
         height: 110px;
