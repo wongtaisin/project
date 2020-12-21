@@ -18,6 +18,9 @@
       <div class="wechat">
         <img src="../../../../assets/images/common/wechat.jpg" />
       </div>
+      <div class="wechat">
+        <img src="../../../../assets/images/common/douyin.png" />
+      </div>
     </div>
     <div class="tel" v-show="tel">
       <i class="iconfont icon-dianhua"></i>
@@ -29,7 +32,7 @@
 <script>
 export default {
   name: 'common-bottom-consult',
-  data () {
+  data() {
     return {
       kua: [
         {
@@ -39,7 +42,7 @@ export default {
         {
           img: require('../../../../assets/images/common/tel.png'),
           text: '服务热线'
-        },
+        }
         // {
         //   img: require('../../../../assets/images/common/wechat.png'),
         //   text: '微信公众号'
@@ -50,22 +53,22 @@ export default {
     }
   },
   computed: {
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
     },
-    commonPublic () {
+    commonPublic() {
       return this.$store.getters['common/commonPublic']
     }
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       this.lang()
     }
   },
-  created () { },
+  created() {},
   methods: {
-    lang () {
+    lang() {
       if (this.commonLanguage == 'zh-HK') {
         this.kua[0].text = '客服咨詢'
         this.kua[1].text = '服務熱線'
@@ -80,24 +83,24 @@ export default {
         this.kua[2].text = '微信公众号'
       }
     },
-    newUrl () {
+    newUrl() {
       this.$router.push({
         path: `/message`
       })
       this.$store.dispatch('common/commonUrl', '/message')
     },
-    telShow () {
+    telShow() {
       this.tel = true
     },
-    telHide () {
+    telHide() {
       this.tel = false
     },
-    keyShow () {
+    keyShow() {
       this.key = true
     },
-    keyHide () {
+    keyHide() {
       this.key = false
-    },
+    }
   }
 }
 </script>
