@@ -18,9 +18,9 @@
       <div class="wechat">
         <img src="../../../../assets/images/common/wechat.jpg" />
       </div>
-      <div class="wechat">
-        <img src="../../../../assets/images/common/douyin.png" />
-      </div>
+    </div>
+    <div class="douyin">
+      <img src="../../../../assets/images/common/douyin.png" />
     </div>
     <div class="tel" v-show="tel">
       <i class="iconfont icon-dianhua"></i>
@@ -43,10 +43,6 @@ export default {
           img: require('../../../../assets/images/common/tel.png'),
           text: '服务热线'
         }
-        // {
-        //   img: require('../../../../assets/images/common/wechat.png'),
-        //   text: '微信公众号'
-        // }
       ],
       key: false,
       tel: false
@@ -157,6 +153,19 @@ export default {
     }
   }
   .wechat {
+    width: 82px !important;
+    height: 82px !important;
+    background: white;
+    padding-top: 0 !important;
+    img {
+      width: 80px !important;
+      height: 80px !important;
+    }
+  }
+  .douyin {
+    position: fixed;
+    bottom: 155px;
+    right: 130px;
     width: 82px !important;
     height: 82px !important;
     background: white;
