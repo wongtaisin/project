@@ -16,17 +16,17 @@
         {{item.text}}
       </div>
       <div class="wechat">
-        <img src="../../../../assets/images/common/wechat.jpg" />
+        <img src="../../../../assets/images/common/wechat1.png" />
       </div>
     </div>
     <div class="douyin">
-      <img src="../../../../assets/images/common/douyin.png" />
+      <img src="../../../../assets/images/common/douyin.jpg" />
     </div>
     <div class="douyin1">
-      <img src="../../../../assets/images/common/001.jpg" />
+      <img src="../../../../assets/images/common/001.png" />
     </div>
     <div class="douyin2">
-      <img src="../../../../assets/images/common/002.jpg" />
+      <img src="../../../../assets/images/common/002.png" />
     </div>
     <div class="tel" v-show="tel">
       <i class="iconfont icon-dianhua"></i>
