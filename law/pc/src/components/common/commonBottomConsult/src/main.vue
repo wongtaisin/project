@@ -22,6 +22,12 @@
     <div class="douyin">
       <img src="../../../../assets/images/common/douyin.png" />
     </div>
+    <div class="douyin1">
+      <img src="../../../../assets/images/common/001.jpg" />
+    </div>
+    <div class="douyin2">
+      <img src="../../../../assets/images/common/002.jpg" />
+    </div>
     <div class="tel" v-show="tel">
       <i class="iconfont icon-dianhua"></i>
       {{commonPublic.header.tel}}
@@ -165,7 +171,33 @@ export default {
   .douyin {
     position: fixed;
     bottom: 155px;
+    right: 226px;
+    width: 82px !important;
+    height: 82px !important;
+    background: white;
+    padding-top: 0 !important;
+    img {
+      width: 80px !important;
+      height: 80px !important;
+    }
+  }
+  .douyin1 {
+    position: fixed;
+    bottom: 155px;
     right: 130px;
+    width: 82px !important;
+    height: 82px !important;
+    background: white;
+    padding-top: 0 !important;
+    img {
+      width: 80px !important;
+      height: 80px !important;
+    }
+  }
+  .douyin2 {
+    position: fixed;
+    bottom: 155px;
+    right: 30px;
     width: 82px !important;
     height: 82px !important;
     background: white;
