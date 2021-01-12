@@ -23,35 +23,31 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-  },
-  data () {
-    return {
-
-    }
+  components: {},
+  data() {
+    return {}
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'domain') this.loadData()
     }
   },
   computed: {
-    getPracticeAreas () {
+    getPracticeAreas() {
       return this.$store.getters['domain/getPracticeAreas']
     }
   },
-  created () { },
-  mounted () {
+  created() {},
+  mounted() {
     this.loadData()
   },
   methods: {
-    loadData () {
+    loadData() {
       this.$store.dispatch('domain/getPracticeAreas')
     },
-    goDetail (e) {
+    goDetail(e) {
       this.$router.push({
         path: '/domain/detail',
         query: {
@@ -76,6 +72,7 @@ export default {
       justify-content: start;
       flex-wrap: wrap;
       margin: 0 auto;
+      padding-bottom: 55px;
       li {
         width: 215px;
         height: 100px;
