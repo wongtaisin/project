@@ -24,11 +24,9 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-  },
-  data () {
+  components: {},
+  data() {
     return {
       page: {
         page: 1,
@@ -36,11 +34,11 @@ export default {
         year: 2019
       },
       loadMoreFlag: true,
-      nothing: require('../../assets/images/common/nothing.jpg'),
+      nothing: require('../../assets/images/common/nothing.jpg')
     }
   },
   computed: {
-    getNews () {
+    getNews() {
       return this.$store.getters['news/getNews']
     }
   },
@@ -50,26 +48,27 @@ export default {
       handler: function (to) {
         console.log(to)
         if (to.name != 'news') return false
-        let date = new Date
+        let date = new Date()
         this.page.page = 1
         this.page.cid = to.query.id
         this.page.year = this.getNews.data.current_year || date.getFullYear()
         this.loadData()
         console.log(this.getNews)
-      },
+      }
     },
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'news') this.loadData()
     }
   },
-  mounted () {
+  mounted() {
     this.scroll()
   },
   methods: {
-    scroll () {
+    scroll() {
       window.onscroll = () => {
-        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset // 滚动条的垂直位置
+        let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset // 滚动条的垂直位置
         let innerHeight = window.innerHeight // 返回窗口的文档显示区的高度
         let scrollHeight = document.documentElement.scrollHeight // 页面内容高度
         // console.log(scrollTop, innerHeight, scrollHeight, `滑动事件`)
@@ -78,7 +77,7 @@ export default {
         }
       }
     },
-    loadData () {
+    loadData() {
       this.loadMoreFlag = false
       let _params = {
         paramsDate: this.page,
@@ -89,13 +88,13 @@ export default {
       }
       this.$store.dispatch('news/getNews', _params)
     },
-    loadMore () {
+    loadMore() {
       if (!this.loadMoreFlag) return false
       if (this.page.page >= this.getNews.totalPages) return false
       this.page.page += 1
       this.loadData()
     },
-    changeMenu (item) {
+    changeMenu(item) {
       this.$router.push({
         path: '/new/detail',
         query: {
@@ -103,12 +102,12 @@ export default {
         }
       })
     },
-    year (e) {
+    year(e) {
       this.page.page = 1
       this.page.year = e
       this.loadData()
     },
-    select (id) {
+    select(id) {
       this.page.page = 1
       this.page.cid = id
       this.loadData()

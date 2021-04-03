@@ -27,37 +27,37 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       language: {}
     }
   },
   computed: {
-    getLawyerDetail () {
+    getLawyerDetail() {
       return this.$store.getters['team/getLawyerDetail']
     },
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
-    },
+    }
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'teamDetail') this.loadData()
     },
-    '$store.state.common.commonLanguage' (val) {
+    '$store.state.common.commonLanguage'(val) {
       this.lang()
     }
   },
-  created () { },
-  activated () {
+  created() {},
+  activated() {
     this.loadData()
   },
-  updated () {
+  updated() {
     this.widthImg()
   },
   methods: {
-    lang () {
+    lang() {
       if (this.commonLanguage == 'zh-HK') {
         this.language = {
           profession: '專業領域',
@@ -82,28 +82,25 @@ export default {
           tel: '电话',
           fax: '传真'
         }
-
       }
     },
-    loadData () {
+    loadData() {
       this.lang()
       let data = {
         id: this.$route.query.id
       }
       let _params = {
         paramsDate: data,
-        callBack: () => {
-
-        }
+        callBack: () => {}
       }
       this.$store.dispatch('team/getLawyerDetail', _params)
     },
-    widthImg () {
+    widthImg() {
       let texts = document.getElementsByClassName('texts')[0]
-      texts.querySelectorAll('img').forEach((item) => {
+      texts.querySelectorAll('img').forEach(item => {
         item.style.maxWidth = '100%'
       })
-      texts.querySelectorAll('p').forEach((item) => {
+      texts.querySelectorAll('p').forEach(item => {
         if (item.querySelectorAll('img').length !== 0) {
           item.style.textIndent = '0'
           item.style.textAlign = 'center'

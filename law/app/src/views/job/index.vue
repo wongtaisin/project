@@ -54,18 +54,16 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-  },
-  data () {
+  components: {},
+  data() {
     return {
       active: 0,
       contact: {}
     }
   },
   computed: {
-    getRecruit () {
+    getRecruit() {
       // this.$store.getters['job/getRecruit'].jobs.forEach((item, i) => {
       //   if (item.demand) {
       //     item.demand = item.demand.replace(/\n/g, '</br>')
@@ -79,29 +77,29 @@ export default {
       // })
       return this.$store.getters['job/getRecruit']
     },
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
-    },
+    }
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'job') this.loadData()
     },
-    '$store.state.common.commonLanguage' (val) {
+    '$store.state.common.commonLanguage'(val) {
       this.lang()
     }
   },
-  created () { },
-  mounted () {
+  created() {},
+  mounted() {
     this.loadData()
   },
   methods: {
-    loadData () {
+    loadData() {
       this.lang()
       this.$store.dispatch('job/getRecruit')
     },
-    lang () {
+    lang() {
       if (this.commonLanguage == 'zh-HK') {
         this.contact = {
           number: '招聘人數',
@@ -114,7 +112,7 @@ export default {
           tel: '電話',
           contactName: '聯系人'
         }
-      } else if (this.commonLanguage == 'en-US') {
+      } else if (this.commonLanguage === 'en-US') {
         this.contact = {
           number: 'NUMBER',
           address: 'ADDRESS',
@@ -140,7 +138,7 @@ export default {
         }
       }
     },
-    foldMenu (i) {
+    foldMenu(i) {
       this.active = i
     }
   }

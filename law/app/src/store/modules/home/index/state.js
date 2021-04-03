@@ -1,7 +1,7 @@
 const state = {
-  getLanguage: '',
+  getLanguage: "",
   homeData: {
-    data: {},
+    data: {}
   }
-}
-export default state
+};
+export default state;

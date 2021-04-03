@@ -26,18 +26,18 @@ export default {
   props: {
     totalPages: {
       type: [Number, String],
-      default () {
+      default() {
         return 1
       }
     }
   },
-  data () {
+  data() {
     return {
-      currentPage: 1,
+      currentPage: 1
     }
   },
   computed: {
-    pages () {
+    pages() {
       const c = this.currentPage
       const t = Number(this.totalPages)
       if (t < 10) {
@@ -59,24 +59,24 @@ export default {
     }
   },
   methods: {
-    select (n) {
+    select(n) {
       if (n === this.currentPage) return
       if (typeof n === 'string') return
       this.currentPage = n
       this.actived = n
       this.current()
     },
-    prevs () {
-      if (this.currentPage == 1) return false
+    prevs() {
+      if (this.currentPage === 1) return false
       this.currentPage--
       this.current()
     },
-    next () {
-      if (this.currentPage == this.totalPages) return false
+    next() {
+      if (this.currentPage === this.totalPages) return false
       this.currentPage++
       this.current()
     },
-    current () {
+    current() {
       this.$emit('current', this.currentPage)
     }
   }

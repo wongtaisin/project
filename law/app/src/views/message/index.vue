@@ -30,9 +30,8 @@
 
 <script>
 export default {
-  components: {
-  },
-  data () {
+  components: {},
+  data() {
     return {
       message: '',
       question: 'Q',
@@ -44,32 +43,32 @@ export default {
     }
   },
   computed: {
-    getQuestion () {
+    getQuestion() {
       return this.$store.getters['message/getQuestion']
     },
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
-    },
+    }
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'message') this.loadData()
     },
-    '$store.state.common.commonLanguage' (val) {
+    '$store.state.common.commonLanguage'(val) {
       this.lang()
     }
   },
-  created () { },
-  mounted () {
+  created() {},
+  mounted() {
     this.loadData()
   },
   methods: {
-    loadData () {
+    loadData() {
       this.lang()
       this.$store.dispatch('message/getQuestion')
     },
-    lang () {
+    lang() {
       if (this.commonLanguage == 'zh-HK') {
         this.question = '問'
         this.answer = '答'
@@ -93,18 +92,16 @@ export default {
         this.placeholder = '在这里输入问题，嘉得信专家会帮您解答。'
       }
     },
-    sub () {
+    sub() {
       if (this.message == '') return false
       let _params = {
         paramsDate: {
           message: this.message
         },
-        callBack: () => {
-
-        }
+        callBack: () => {}
       }
       this.$store.dispatch('message/getMessage', _params)
-    },
+    }
   }
 }
 </script>

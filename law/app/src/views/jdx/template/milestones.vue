@@ -49,29 +49,28 @@
 
 <script>
 export default {
-  components: {
-  },
+  components: {},
   props: {
     data: {
       type: Array,
-      default () {
+      default() {
         return []
       }
     },
     header: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     },
     more: {
       type: String,
-      default () {
+      default() {
         return ''
       }
-    },
+    }
   },
-  data () {
+  data() {
     return {
       currentPage: 0,
       totalPages: 0,
@@ -80,7 +79,7 @@ export default {
     }
   },
   watch: {
-    'data' (val) {
+    data(val) {
       if (val.length) {
         this.currentPage = this.data[this.data.length - 1].year
         this.totalPages = this.data[0].year
@@ -89,37 +88,39 @@ export default {
       }
     }
   },
-  mounted () {
+  mounted() {
     console.log(this.data)
   },
   methods: {
-    select (n) {
+    select(n) {
       // if (n === this.currentPage) return
       // if (typeof n === 'string') return
       // this.currentPage = n
       // this.actived = n
       // this.current()
     },
-    prevs () {
-      if (this.currentPage == Number(sessionStorage.getItem(`f`))) this.currentPage = this.totalPages + 1
+    prevs() {
+      if (this.currentPage == Number(sessionStorage.getItem(`f`)))
+        this.currentPage = this.totalPages + 1
       this.currentPage--
       this.current()
     },
-    next () {
-      if (this.currentPage == this.totalPages) this.currentPage = Number(sessionStorage.getItem(`f`)) - 1
+    next() {
+      if (this.currentPage == this.totalPages)
+        this.currentPage = Number(sessionStorage.getItem(`f`)) - 1
       this.currentPage++
       this.current()
     },
-    current () {
+    current() {
       const c = this.currentPage
       this.pages = [c - 1, c, c + 1]
       this.data.map((item, i) => {
-        if (this.currentPage == item.year) {
+        if (this.currentPage === item.year) {
           this.text = item.data[0].title
         }
       })
     },
-    goUrl () {
+    goUrl() {
       this.$router.push({
         path: '/milestones'
       })
@@ -139,8 +140,7 @@ export default {
     height: 100%;
     .title {
       p {
-        background: url('../../../assets/images/jdx/milestones/title.png')
-          no-repeat;
+        background: url('../../../assets/images/jdx/milestones/title.png') no-repeat;
         background-size: 144px 48px;
       }
     }
@@ -175,8 +175,7 @@ export default {
     .actived {
       text-align: center;
       width: 246px;
-      background: url('../../../assets/images/jdx/milestones/active.png')
-        no-repeat;
+      background: url('../../../assets/images/jdx/milestones/active.png') no-repeat;
       background-size: 246px 243px;
       font-size: 42px;
       padding: 0;

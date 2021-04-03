@@ -5,7 +5,7 @@ const state = {
     totalPages: 1
   },
   getNewsDetail: {
-    data: {},
+    data: {}
   }
-}
-export default state
+};
+export default state;

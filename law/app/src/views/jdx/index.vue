@@ -50,14 +50,14 @@ export default {
     jdxContact
   },
   computed: {
-    getAbout () {
+    getAbout() {
       return this.$store.getters['common/getAbout'].data
     },
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
-    },
+    }
   },
-  data () {
+  data() {
     return {
       swiperOption: {
         direction: 'vertical',
@@ -87,24 +87,24 @@ export default {
     }
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'jdx') this.loadData()
     },
-    '$store.state.common.commonLanguage' (val) {
+    '$store.state.common.commonLanguage'(val) {
       this.lang()
     }
   },
-  created () {
+  created() {
     this.loadData()
   },
   methods: {
-    loadData () {
+    loadData() {
       this.lang()
       this.$store.dispatch('common/getAbout')
       this.$store.dispatch('common/commonPublic')
     },
-    lang () {
+    lang() {
       if (this.commonLanguage == 'zh-HK') {
         this.more = '查看詳情'
         this.contact = {
@@ -133,7 +133,7 @@ export default {
           fax: '传真'
         }
       }
-    },
+    }
   }
 }
 </script>

@@ -33,29 +33,29 @@ export default {
   props: {
     data: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     },
     header: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     },
     contact: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
-    },
+    }
   },
   computed: {
-    commonPublic () {
+    commonPublic() {
       return this.$store.getters['common/commonPublic']
     }
   },
-  data () {
+  data() {
     return {}
   }
 }
@@ -71,8 +71,7 @@ export default {
     .title {
       color: #c12219;
       p {
-        background: url('../../../assets/images/jdx/contact/title.png')
-          no-repeat;
+        background: url('../../../assets/images/jdx/contact/title.png') no-repeat;
         background-size: 144px 48px;
       }
     }

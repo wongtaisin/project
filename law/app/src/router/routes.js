@@ -1,176 +1,178 @@
-import index from '@/views/home/index'
-import home from '@/views/home/home'
-import aboutIn from '@/views/about/index'
-import about from '@/views/about/template/about'
-import milestones from '@/views/about/template/milestones'
-import honor from '@/views/about/template/honor'
-import friendship from '@/views/about/template/friendship'
-import team from '@/views/team/index'
-import teamDetail from '@/views/team/detail'
-import domain from '@/views/domain/index'
-import domainDetail from '@/views/domain/detail'
-import news from '@/views/new/index'
-import newsDetail from '@/views/new/detail'
-import job from '@/views/job/index'
-import jdx from '@/views/jdx/index'
-import message from '@/views/message/index'
+import index from "@/views/home/index";
+import home from "@/views/home/home";
+import aboutIn from "@/views/about/index";
+import about from "@/views/about/template/about";
+import milestones from "@/views/about/template/milestones";
+import honor from "@/views/about/template/honor";
+import friendship from "@/views/about/template/friendship";
+import team from "@/views/team/index";
+import teamDetail from "@/views/team/detail";
+import domain from "@/views/domain/index";
+import domainDetail from "@/views/domain/detail";
+import news from "@/views/new/index";
+import newsDetail from "@/views/new/detail";
+import job from "@/views/job/index";
+import jdx from "@/views/jdx/index";
+import message from "@/views/message/index";
 
-
-const routes = [{
-    path: '/',
+const routes = [
+  {
+    path: "/",
     // name: 'login',
     // component: login,
-    redirect: '/home',
+    redirect: "/home"
   },
   {
-    path: '/jdx',
-    name: 'jdx',
+    path: "/jdx",
+    name: "jdx",
     component: jdx,
     meta: {
       setTabs: true,
-      type: 'mk-jdx',
+      type: "mk-jdx",
       loginToken: true
     }
   },
   {
-    path: '',
+    path: "",
     component: index,
-    children: [{
-        path: '/home',
-        name: 'home',
+    children: [
+      {
+        path: "/home",
+        name: "home",
         component: home,
         meta: {
           setTabs: true,
-          type: 'mk-home',
+          type: "mk-home",
           loginToken: true
         }
       },
       {
-        path: '',
+        path: "",
         component: aboutIn,
-        children: [{
-            path: '/about',
-            name: 'about',
+        children: [
+          {
+            path: "/about",
+            name: "about",
             component: about,
             meta: {
               setTabs: true,
-              type: 'mk-about',
+              type: "mk-about",
               loginToken: true
             }
           },
           {
-            path: '/milestones',
-            name: 'milestones',
+            path: "/milestones",
+            name: "milestones",
             component: milestones,
             meta: {
               setTabs: true,
-              type: 'mk-milestones',
+              type: "mk-milestones",
               loginToken: true
             }
           },
           {
-            path: '/honor',
-            name: 'honor',
+            path: "/honor",
+            name: "honor",
             component: honor,
             meta: {
               setTabs: true,
-              type: 'mk-honor',
+              type: "mk-honor",
               loginToken: true
             }
           },
           {
-            path: '/friendship',
-            name: 'friendship',
+            path: "/friendship",
+            name: "friendship",
             component: friendship,
             meta: {
               setTabs: true,
-              type: 'mk-friendship',
+              type: "mk-friendship",
               loginToken: true
             }
-          },
+          }
         ]
       },
       {
-        path: '/team',
-        name: 'team',
+        path: "/team",
+        name: "team",
         component: team,
         meta: {
           setTabs: true,
-          type: 'mk-team',
+          type: "mk-team",
           loginToken: true
         }
       },
       {
-        path: '/team/detail',
-        name: 'teamDetail',
+        path: "/team/detail",
+        name: "teamDetail",
         component: teamDetail,
         meta: {
           setTabs: true,
-          type: 'mk-team-detail',
+          type: "mk-team-detail",
           loginToken: true
         }
       },
       {
-        path: '/domain',
-        name: 'domain',
+        path: "/domain",
+        name: "domain",
         component: domain,
         meta: {
           setTabs: true,
-          type: 'mk-domain',
+          type: "mk-domain",
           loginToken: true
         }
       },
       {
-        path: '/domain/detail',
-        name: 'domainDetail',
+        path: "/domain/detail",
+        name: "domainDetail",
         component: domainDetail,
         meta: {
           setTabs: true,
-          type: 'mk-domain-detail',
+          type: "mk-domain-detail",
           loginToken: true
         }
       },
       {
-        path: '/new',
-        name: 'news',
+        path: "/new",
+        name: "news",
         component: news,
         meta: {
           setTabs: true,
-          type: 'mk-news',
+          type: "mk-news",
           loginToken: true
         }
       },
       {
-        path: '/new/detail',
-        name: 'newsDetail',
+        path: "/new/detail",
+        name: "newsDetail",
         component: newsDetail,
         meta: {
           setTabs: true,
-          type: 'mk-news-detail',
+          type: "mk-news-detail",
           loginToken: true
         }
       },
       {
-        path: '/job',
-        name: 'job',
+        path: "/job",
+        name: "job",
         component: job,
         meta: {
           setTabs: true,
-          type: 'mk-job',
+          type: "mk-job",
           loginToken: true
         }
       },
       {
-        path: '/message',
-        name: 'message',
+        path: "/message",
+        name: "message",
         component: message,
         meta: {
           setTabs: true,
-          type: 'mk-message',
+          type: "mk-message",
           loginToken: true
         }
-      },
+      }
     ]
   }
-]
-export default routes
+];
+export default routes;

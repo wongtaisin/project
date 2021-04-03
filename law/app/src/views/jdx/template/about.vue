@@ -23,27 +23,27 @@ export default {
   props: {
     data: {
       type: String,
-      default () {
+      default() {
         return ''
       }
     },
     more: {
       type: String,
-      default () {
+      default() {
         return ''
       }
-    },
+    }
   },
   computed: {
-    commonPublic () {
+    commonPublic() {
       return this.$store.getters['common/commonPublic']
     }
   },
-  data () {
+  data() {
     return {}
   },
   methods: {
-    goUrl () {
+    goUrl() {
       this.$router.push({
         path: '/about'
       })

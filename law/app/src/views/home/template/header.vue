@@ -62,12 +62,12 @@ export default {
   props: {
     data: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
-    },
+    }
   },
-  data () {
+  data() {
     return {
       navShow: false,
       sub: '',
@@ -76,22 +76,22 @@ export default {
     }
   },
   computed: {
-    commonUrl () {
+    commonUrl() {
       return this.$store.getters['common/commonUrl']
     },
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
-    },
+    }
   },
   watch: {
-    '$store.state.common.commonLanguage' (val) {
+    '$store.state.common.commonLanguage'(val) {
       this.lang()
     }
   },
-  created () { },
-  mounted () { },
+  created() {},
+  mounted() {},
   methods: {
-    lang () {
+    lang() {
       if (this.commonLanguage == 'zh-HK') {
         this.navigation = '導航'
       } else if (this.commonLanguage == 'en-US') {
@@ -100,25 +100,28 @@ export default {
         this.navigation = '导航'
       }
     },
-    home () {
+    home() {
       this.$router.push({
         path: `/home`
       })
     },
-    clickNav () {
+    clickNav() {
       this.navShow = !this.navShow
       this.sub = ''
       if (this.navShow) {
-        document.body.addEventListener('touchmove', this.stopTouch, { passive: false, capture: true })
+        document.body.addEventListener('touchmove', this.stopTouch, {
+          passive: false,
+          capture: true
+        })
         document.documentElement.scrollTop = 0
       } else {
         document.body.removeEventListener('touchmove', this.stopTouch, { capture: true })
       }
     },
-    stopTouch (e) {
+    stopTouch(e) {
       e.preventDefault()
     },
-    changeMenu (item, i) {
+    changeMenu(item, i) {
       this.navShow = false
       document.body.removeEventListener('touchmove', this.stopTouch, { capture: true })
       if (item.url == '/new') {
@@ -132,13 +135,13 @@ export default {
       }
       this.$store.dispatch('common/commonUrl', item.url)
     },
-    mouMenu (item, i) {
+    mouMenu(item, i) {
       this.sub = i
     },
     // clickSea () {
     //   this.searchShow = !this.searchShow
     // },
-    language (data) {
+    language(data) {
       let res = {
         lang: data
       }
@@ -152,9 +155,9 @@ export default {
       }
       this.$store.dispatch('home/getLanguage', _params)
     },
-    changeChild (url, id, item) {
+    changeChild(url, id, item) {
       this.changeMenu(item)
-      if (url == undefined) {
+      if (url === undefined) {
         this.$router.push({
           path: `/new?id=${id}`
         })

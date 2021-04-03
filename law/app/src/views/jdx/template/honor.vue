@@ -48,24 +48,24 @@ export default {
   props: {
     data: {
       type: Array,
-      default () {
+      default() {
         return []
       }
     },
     header: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     },
     more: {
       type: String,
-      default () {
+      default() {
         return ''
       }
-    },
+    }
   },
-  data () {
+  data() {
     return {
       active: 0,
       date: 0,
@@ -77,28 +77,30 @@ export default {
     }
   },
   watch: {
-    'data' (val) {
+    data(val) {
       if (val) {
         const c = val[0].year
         const t = val[val.length - 1].year
         let arr = []
         for (let index = t; index < c + 1; index++) {
           arr.push(index)
-          arr.sort(function (a, b) { return b - a })
+          arr.sort(function (a, b) {
+            return b - a
+          })
         }
         this.pages = arr
         this.clickA(0)
       }
     }
   },
-  mounted () { },
+  mounted() {},
   methods: {
-    clickA (i) {
+    clickA(i) {
       this.active = i
       this.date = this.data[i].year
       this.text = this.data[i].data
     },
-    goUrl () {
+    goUrl() {
       this.$router.push({
         path: '/honor'
       })
@@ -134,8 +136,7 @@ export default {
           margin: 0 39px 0 0;
         }
         .active {
-          background: url('../../../assets/images/jdx/honor/active.png')
-            no-repeat center 60px;
+          background: url('../../../assets/images/jdx/honor/active.png') no-repeat center 60px;
           background-size: 27px;
           color: #c12219;
         }
@@ -156,8 +157,7 @@ export default {
               margin-bottom: 20px;
               display: block;
               padding-left: 30px;
-              background: url('../../../assets/images/jdx/honor/active.png')
-                no-repeat 0 12px;
+              background: url('../../../assets/images/jdx/honor/active.png') no-repeat 0 12px;
               background-size: 14px;
               font-size: 24px;
               line-height: 1.6;

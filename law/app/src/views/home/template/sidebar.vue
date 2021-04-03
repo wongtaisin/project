@@ -50,7 +50,7 @@ export default {
     swiper,
     swiperSlide
   },
-  data () {
+  data() {
     return {
       swiperOption: {
         spaceBetween: 30,
@@ -70,35 +70,35 @@ export default {
     }
   },
   computed: {
-    homeData () {
+    homeData() {
       return this.$store.getters['home/homeData'].data
     },
-    commonLanguage () {
+    commonLanguage() {
       return this.$store.getters['common/commonLanguage']
-    },
+    }
   },
   watch: {
-    '$store.state.home.getLanguage' (data) {
+    '$store.state.home.getLanguage'(data) {
       if (data.code != 0) return false
       if (this.$route.name == 'home') this.loadData()
     },
-    '$store.state.common.commonLanguage' (val) {
+    '$store.state.common.commonLanguage'(val) {
       this.lang()
     }
   },
-  created () {
+  created() {
     this.loadData()
   },
   methods: {
-    loadData () {
+    loadData() {
       this.lang()
       this.$store.dispatch('home/homeData')
     },
-    lang () {
-      if (this.commonLanguage == 'zh-HK') {
+    lang() {
+      if (this.commonLanguage === 'zh-HK') {
         this.about = '關於嘉得信'
         this.areas = '專業領域'
-      } else if (this.commonLanguage == 'en-US') {
+      } else if (this.commonLanguage === 'en-US') {
         this.about = 'About JDS'
         this.areas = 'Practice Areas'
       } else {
@@ -106,7 +106,7 @@ export default {
         this.areas = '业务领域'
       }
     },
-    goDetail (e) {
+    goDetail(e) {
       this.$router.push({
         path: `/new/detail`,
         query: {
@@ -114,12 +114,12 @@ export default {
         }
       })
     },
-    goUrl (url) {
+    goUrl(url) {
       this.$router.push({
         path: url
       })
     },
-    goNew (e) {
+    goNew(e) {
       this.$router.push({
         path: `/new?id=${e}`
       })
