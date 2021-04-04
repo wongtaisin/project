@@ -16,17 +16,16 @@ export default {
   props: {
     data: {
       type: String,
-      default () {
+      default() {
         return ''
       }
-    },
-  },
-  data () {
-    return {
     }
   },
+  data() {
+    return {}
+  },
   methods: {
-    goUrl (url) {
+    goUrl(url) {
       this.$router.push({
         path: '/institution?id=1'
       })

@@ -20,14 +20,13 @@
 </template>
 
 <script>
-
 export default {
-  data () {
+  data() {
     return {
       id: '',
       page: {
         page: 1,
-        cid: 1,
+        cid: 1
       },
       nothing: require('../../assets/images/common/nothing.png'),
       loadMoreFlag: true,
@@ -35,7 +34,7 @@ export default {
     }
   },
   computed: {
-    getNews () {
+    getNews() {
       return this.$store.getters['news/getNews']
     }
   },
@@ -53,14 +52,15 @@ export default {
   //   this.page.cid = this.$route.query.id
   //   this.loadData()
   // },
-  mounted () {
+  mounted() {
     this.scroll()
   },
   methods: {
-    scroll () {
+    scroll() {
       this.$nextTick(() => {
         window.onscroll = () => {
-          let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset  // 滚动条的垂直位置
+          let scrollTop =
+            document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset // 滚动条的垂直位置
           let innerHeight = window.innerHeight // 返回窗口的文档显示区的高度
           let scrollHeight = document.documentElement.scrollHeight // 页面内容高度
           if (scrollTop + innerHeight + 10 >= scrollHeight) {
@@ -69,7 +69,7 @@ export default {
         }
       })
     },
-    loadData () {
+    loadData() {
       this.loadMoreFlag = false
       let _params = {
         paramsDate: this.page,
@@ -84,13 +84,13 @@ export default {
       }
       this.$store.dispatch('news/getNews', _params)
     },
-    loadMore () {
+    loadMore() {
       if (!this.loadMoreFlag) return false
       if (this.page.page >= this.getNews.data.pageCount) return false
       this.page.page += 1
       this.loadData()
     },
-    goDetail (e) {
+    goDetail(e) {
       this.$router.push({
         path: '/news/detail',
         query: {

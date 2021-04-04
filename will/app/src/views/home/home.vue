@@ -26,22 +26,20 @@ export default {
     willNew,
     willAd
   },
-  data () {
-    return {
-
-    }
+  data() {
+    return {}
   },
   computed: {
-    homeData () {
+    homeData() {
       return this.$store.getters['home/homeData'].data
-    },
+    }
   },
-  created () {
+  created() {
     this.loadData()
   },
-  mounted () { },
+  mounted() {},
   methods: {
-    loadData () {
+    loadData() {
       this.$store.dispatch('home/homeData')
     }
   }

@@ -12,19 +12,18 @@ export default {
   props: {
     src: {
       type: String,
-      default () {
+      default() {
         return ''
       }
     }
   },
-  data () {
+  data() {
     return {
       // img: require('../../../../assets/images/common/main.png')
       img: ''
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 

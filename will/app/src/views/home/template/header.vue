@@ -51,50 +51,50 @@ export default {
   props: {
     data: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
-    },
+    }
   },
-  data () {
+  data() {
     return {
       navShow: false,
       sub: ''
     }
   },
   computed: {
-    commonUrl () {
+    commonUrl() {
       return this.$store.getters['common/commonUrl']
     }
   },
   watch: {
-    'navShow' (val) {
+    navShow(val) {
       this.capture()
     }
   },
-  created () { },
-  mounted () {
+  created() {},
+  mounted() {
     console.log(this.commonUrl)
   },
   methods: {
-    Toggle (i) {
+    Toggle(i) {
       document.querySelectorAll('.sidebar-ul').forEach((item, index) => {
         let _class = item.querySelectorAll('.sidebar-li')[i].childNodes[2]
-        if (_class.classList.contains("block")) return _class.classList.remove('block')
+        if (_class.classList.contains('block')) return _class.classList.remove('block')
         _class.classList.add('block')
       })
     },
-    home () {
+    home() {
       this.navShow = false
       this.$router.push({
         path: `/home`
       })
     },
-    clickNav () {
+    clickNav() {
       this.navShow = !this.navShow
       this.sub = ''
     },
-    capture () {
+    capture() {
       // 为body蒙层容器dom节点，stopTouch禁止属性
       // if (this.navShow) {
       //   document.body.addEventListener('touchmove', this.stopTouch, { passive: false, capture: true })
@@ -113,10 +113,10 @@ export default {
         document.body.style.position = ''
       }
     },
-    stopTouch (e) {
+    stopTouch(e) {
       e.preventDefault()
     },
-    changeMenu (item) {
+    changeMenu(item) {
       this.navShow = false
       if (item.child) {
         this.$router.push({
@@ -129,11 +129,11 @@ export default {
       }
       this.$store.dispatch('common/commonUrl', item.url)
     },
-    mouMenu (i) {
+    mouMenu(i) {
       this.sub = i
       this.Toggle(i)
     },
-    changeChild (id, item) {
+    changeChild(id, item) {
       this.navShow = false
       this.$router.push({
         path: `${item.url}?id=${id}`

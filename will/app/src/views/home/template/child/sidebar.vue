@@ -23,12 +23,12 @@ export default {
   props: {
     data: {
       type: Array,
-      default () {
+      default() {
         return []
       }
-    },
+    }
   },
-  data () {
+  data() {
     return {
       swiperOption: {
         spaceBetween: 30,
@@ -49,11 +49,8 @@ export default {
       }
     }
   },
-  mounted () {
-  },
-  methods: {
-
-  }
+  mounted() {},
+  methods: {}
 }
 </script>
 
