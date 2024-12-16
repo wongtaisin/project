@@ -1,3 +1,13 @@
+<!--
+ * @Author: wingddd wongtaisin1024@gmail.com
+ * @Date: 2024-12-14 15:26:34
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2024-12-16 10:00:13
+ * @FilePath: \project\app-vue3\src\App.vue
+ * @Description:
+ *
+ * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
+-->
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -11,7 +21,7 @@ import HelloWorld from './components/HelloWorld.vue'
 			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
 		</a>
 	</div>
-	<HelloWorld msg="app-vue3" />
+	<HelloWorld msg="这是 app-vue3" />
 </template>
 
 <style lang="scss" scoped>
