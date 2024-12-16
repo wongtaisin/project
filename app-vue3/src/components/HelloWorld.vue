@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-12-14 15:26:34
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-16 09:59:12
+ * @LastEditTime: 2024-12-16 16:40:35
  * @FilePath: \project\app-vue3\src\components\HelloWorld.vue
  * @Description:
  *
@@ -23,7 +23,7 @@ const count = ref(0)
 		<button type="button" @click="count++">新增 {{ count }}</button>
 		<p>
 			子应用
-			<code>components/HelloWorld.vue</code> to test HMR
+			<code>components/HelloWorld.vue</code> 测试HMR
 		</p>
 	</div>
 

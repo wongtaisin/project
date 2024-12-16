@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-12-14 15:26:34
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-16 09:18:54
+ * @LastEditTime: 2024-12-16 16:37:46
  * @FilePath: \project\app-vue3\src\main.ts
  * @Description:
  *
@@ -12,12 +12,13 @@ import { qiankunWindow, renderWithQiankun } from 'vite-plugin-qiankun/dist/helpe
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import './style.css'
+// import './style.css'
+import './assets/css/style.css'
 
 const app = createApp(App)
 
 const render = (container?: any) => {
-	app.use(router).mount(container ? container.querySelector('#app') : '#app')
+	app.use(router).mount(container ? container.querySelector('#app-vue3') : '#app-vue3')
 }
 
 const initQianKun = () => {

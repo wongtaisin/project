@@ -1,29 +1,29 @@
+<!--
+ * @Author: wingddd wongtaisin1024@gmail.com
+ * @Date: 2024-11-13 08:05:37
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2024-12-14 09:15:45
+ * @FilePath: \PCB-\src\App.vue
+ * @Description: Vue 根组件,配置全局语言和路由视图
+ *
+ * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
+-->
 <template>
-	<div>
-		<a href="https://vitejs.dev" target="_blank">
-			<img src="/vite.svg" class="logo" alt="Vite logo" />
-		</a>
-		<a href="https://vuejs.org/" target="_blank">
-			<img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-		</a>
-	</div>
-	<router-link to="/app/app-vue2/#/">vue-app2</router-link>
-	&nbsp;
-	<router-link to="/app/app-vue3">vue-app3</router-link>
-	<router-view />
+	<el-config-provider :locale="zhCnLocale">
+		<router-view />
+	</el-config-provider>
 </template>
 
-<style scoped>
-.logo {
-	height: 6em;
-	padding: 1.5em;
-	will-change: filter;
-	transition: filter 300ms;
-}
-.logo:hover {
-	filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-	filter: drop-shadow(0 0 2em #42b883aa);
+<script lang="ts" setup>
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+
+const zhCnLocale = zhCn
+</script>
+
+<style>
+/* 全局样式 */
+:root {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+		sans-serif;
 }
 </style>
