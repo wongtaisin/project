@@ -1,23 +1,23 @@
 <template>
-	<div id="app-vue2">
-		<img alt="Vue logo" src="./assets/logo.png" />
-		<HelloWorld msg="这是 app-vue2" />
+	<div id="app">
+		<router-link to="/">主应用</router-link>
+		&nbsp;
+		<router-link to="/app/app-vue2/#/">app-vue2</router-link>
+		&nbsp;
+		<router-link to="/app/app-vue3">app-vue3</router-link>
+		<router-view />
 	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-	name: 'App',
-	components: {
-		HelloWorld
-	}
+	name: 'app',
+	components: {}
 }
 </script>
 
 <style>
-#app-vue2 {
+#app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
