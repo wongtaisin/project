@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-16 18:22:12
+ * @LastEditTime: 2024-12-16 18:46:56
  * @FilePath: \project\main\src\router\routes.ts
  * @Description:
  *
@@ -31,8 +31,8 @@ const routes: Array<RouteRecordRaw> = [
 	},
 	{
 		path: '/',
-		name: 'pcba-list',
-		redirect: 'pcba/list',
+		name: 'home',
+		redirect: '/pcba/list',
 		component: () => import('@/views/home.vue'),
 		meta: {
 			title: '首页'
