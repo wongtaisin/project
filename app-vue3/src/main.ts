@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-12-14 15:26:34
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-16 18:03:07
+ * @LastEditTime: 2024-12-17 16:34:51
  * @FilePath: \project\app-vue3\src\main.ts
  * @Description:
  * 这是一个Vue3子应用的入口文件,主要实现了以下功能:
@@ -49,7 +49,7 @@ const initQianKun = () => {
 		 * @param {any} props - 主应用传递的参数
 		 */
 		mount(props: any) {
-			console.log('vue3 app mounted', props)
+			console.log('vue3 app mounted', props, `子应用挂载`)
 			const { container } = props
 			render(container)
 		},
@@ -57,7 +57,7 @@ const initQianKun = () => {
 		 * @description: 子应用初始化
 		 */
 		bootstrap() {
-			console.log('vue app bootstrapped')
+			console.log('vue app bootstrapped，子应用初始化')
 		},
 		/**
 		 * @description: 卸载子应用
@@ -72,7 +72,7 @@ const initQianKun = () => {
 		 * @param {any} props - 更新的参数
 		 */
 		update(props: any) {
-			console.log('update props', props)
+			console.log('update props', props, `子应用更新`)
 		}
 	})
 }

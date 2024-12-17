@@ -38,7 +38,7 @@ function render(props = {}) {
  * @description: 子应用初始化
  */
 export async function bootstrap() {
-	console.log('vue2 app bootstraped')
+	console.log('vue2 app bootstraped，子应用初始化')
 }
 
 /**
@@ -46,7 +46,7 @@ export async function bootstrap() {
  * @param {any} props - 主应用传递的参数
  */
 export async function mount(props) {
-	console.log('vue2 app mounted', props)
+	console.log('vue2 app mounted', props, `子应用挂载`)
 	render(props)
 }
 
