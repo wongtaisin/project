@@ -75,6 +75,13 @@ const routes: Array<RouteRecordRaw> = [
 				name: 'app-vue3',
 				meta: {},
 				component: () => import('@/components/SubContainer.vue')
+			},
+			// history模式需要通配所有路由，详见vue-router文档
+			{
+				path: '/app/app-vue2/:pathMatch(.*)*',
+				name: 'app-vue2',
+				meta: {},
+				component: () => import('@/components/SubContainer.vue')
 			}
 		]
 	},

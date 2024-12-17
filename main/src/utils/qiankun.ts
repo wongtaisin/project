@@ -1,5 +1,5 @@
-import config from '@/config'
 import { registerMicroApps } from 'qiankun'
+import config from '../config'
 
 const { subApps } = config
 

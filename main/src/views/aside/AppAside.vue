@@ -66,8 +66,15 @@ const menu = ref<MenuItem[]>([
 	{
 		value: '004',
 		name: 'app-vue3',
-		title: 'qiankun',
+		title: 'app-vue3',
 		path: '/app/app-vue3/home',
+		icon: 'icon-caogao1'
+	},
+	{
+		value: '005',
+		name: 'app-vue2',
+		title: 'app-vue2',
+		path: '/app/app-vue2/home',
 		icon: 'icon-caogao1'
 	}
 ])

@@ -184,9 +184,9 @@ const total = ref(0)
 // 加载订单列表
 const userOrderListInit = orderListInit()
 const orderListLoad = async () => {
-	let { rows, total } = await userOrderListInit.getOrderList()
-	tableData.value = rows
-	total.value = total
+	let res = await userOrderListInit.getOrderList()
+	tableData.value = res.rows
+	total.value = res.total
 }
 
 // 文件下载
