@@ -5,7 +5,7 @@ import routes from './routes'
 Vue.use(Router)
 
 const router = new Router({
-	mode: 'history', // history模式需要通配所有路由，详见vue-router文档
+	// mode: 'history', //  开启 history 模式需要在主应用修改通配所有路由(去 #号)
 	// base: process.env.BASE_URL,
 	base: window.__POWERED_BY_QIANKUN__ ? '/app-vue2/' : '/',
 	routes

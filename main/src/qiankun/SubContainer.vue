@@ -3,7 +3,7 @@
  * @Date: 2024-12-14 15:34:45
  * @LastEditors: wingddd wongtaisin1024@gmail.com
  * @LastEditTime: 2024-12-16 17:34:37
- * @FilePath: \project\main\src\components\SubContainer.vue
+ * @FilePath: \project\main\src\qiankun\SubContainer.vue
  * @Description:
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { start } from 'qiankun'
 import { onMounted, onUnmounted } from 'vue'
-import { registerApps } from '../utils/qiankun'
+import { registerApps } from './qiankun'
 
 declare global {
 	interface Window {
