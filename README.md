@@ -1,9 +1,1 @@
-# 深圳律所
-
-```
-law - 律师事务所
-```
-
-```
-will - 遗嘱库
-```
+# Vue 3 + TypeScript + Vite + pinia + axios + vue router
