@@ -1,23 +1,25 @@
 <!--
  * @Author: wingddd wongtaisin1024@gmail.com
- * @Date: 2024-11-13 08:05:37
+ * @Date: 2025-01-08 09:33:10
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-14 09:15:45
+ * @LastEditTime: 2025-01-08 16:12:28
  * @FilePath: \project\src\App.vue
- * @Description: Vue 根组件,配置全局语言和路由视图
+ * @Description:
  *
- * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
+ * Copyright (c) 2025 by wongtaisin1024@gmail.com, All Rights Reserved.
 -->
 <template>
-	<el-config-provider :locale="zhCnLocale">
-		<router-view />
-	</el-config-provider>
+	<component :is="render" />
 </template>
 
 <script lang="ts" setup>
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import { ConfigProvider } from 'vant'
+import { h } from 'vue'
+import { RouterView } from 'vue-router'
 
-const zhCnLocale = zhCn
+const render = () => h(ConfigProvider, {}, () => h(RouterView))
+
+defineExpose({ render })
 </script>
 
 <style>

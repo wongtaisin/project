@@ -14,7 +14,7 @@ import cache from '@/utils/cache'
 import errorCode from '@/utils/errorCode'
 import { tansParams } from '@/utils/jysz'
 import axios, { InternalAxiosRequestConfig } from 'axios'
-import { ElMessage, ElMessageBox, ElNotification } from 'element-plus'
+import { showConfirmDialog, showFailToast, showLoadingToast, showNotify } from 'vant'
 
 // 是否显示重新登录弹窗标志
 export const isRelogin = {
@@ -122,10 +122,9 @@ axios.interceptors.response.use(
 			case 401:
 				if (!isRelogin.show) {
 					isRelogin.show = true
-					ElMessageBox.confirm('登录状态已过期，您可以继续留在该页面，或者重新登录', '系统提示', {
-						confirmButtonText: '重新登录',
-						cancelButtonText: '取消',
-						type: 'warning'
+					showConfirmDialog({
+						title: '系统提示',
+						message: '登录状态已过期，您可以继续留在该页面，或者重新登录'
 					})
 						.then(() => {
 							isRelogin.show = false
@@ -139,13 +138,13 @@ axios.interceptors.response.use(
 				}
 				return Promise.reject('无效的会话，或者会话已过期，请重新登录。')
 			case 500:
-				ElMessage({ message: msg, type: 'error' })
+				showFailToast(msg)
 				return Promise.reject(new Error(msg))
 			case 601:
-				ElMessage({ message: msg, type: 'warning' })
+				showFailToast(msg)
 				return Promise.reject('error')
 			default:
-				ElNotification.error({ title: msg })
+				showNotify(msg)
 				return Promise.reject('error')
 		}
 	},
@@ -159,9 +158,9 @@ axios.interceptors.response.use(
 			message = `系统接口${message.slice(-3)}异常`
 		}
 
-		ElMessage({
+		showLoadingToast({
 			message,
-			type: 'error',
+			forbidClick: true,
 			duration: 5000
 		})
 		return Promise.reject(error)

@@ -10,6 +10,7 @@
  */
 import CommonFileUpload from '@/components/common/fileUpload.vue'
 import CommonPagination from '@/components/common/pagination.vue'
+import { Dialog, Toast } from 'vant'
 import type { App, Component } from 'vue'
 import directives from './directives'
 import utils from './utils'
@@ -49,6 +50,25 @@ const install = (app: App): void => {
 declare module '@vue/runtime-core' {
 	interface ComponentCustomProperties {
 		$utils: typeof utils // 声明$utils工具函数的类型
+	}
+}
+
+export const showMessage = (message: string) => {
+	Toast(message)
+}
+
+export const confirmDialog = async () => {
+	try {
+		await Dialog.confirm({
+			title: '标题',
+			message: '确认执行此操作吗？',
+			showCancelButton: true
+		})
+		// 用户点击确认
+		return true
+	} catch {
+		// 用户点击取消
+		return false
 	}
 }
 

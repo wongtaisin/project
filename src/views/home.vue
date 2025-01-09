@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-14 09:57:35
+ * @LastEditTime: 2025-01-08 14:39:50
  * @FilePath: \project\src\views\home.vue
  * @Description:
  *
@@ -10,17 +10,13 @@
 -->
 <template>
 	<section class="container">
-		<AppAside />
-		<div class="content">
-			<router-view :key="route.path" v-slot="{ Component }">
-				<component :is="Component" />
-			</router-view>
-		</div>
+		<router-view :key="route.path" v-slot="{ Component }">
+			<component :is="Component" />
+		</router-view>
 	</section>
 </template>
 
 <script lang="ts" setup>
-import AppAside from '@/views/aside/AppAside.vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -30,13 +26,5 @@ const route = useRoute()
 .container {
 	flex: 1;
 	@include flexbox(space-between, center);
-	.content {
-		flex: 1;
-		padding: 20px;
-		margin-left: 20px;
-		margin-right: 20px;
-		background: white;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-	}
 }
 </style>
