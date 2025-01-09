@@ -10,7 +10,7 @@
  */
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
-// import pxToViewport from 'postcss-px-to-viewport'
+import pxToViewport from 'postcss-px-to-viewport'
 import AutoImport from 'unplugin-auto-import/vite'
 // import { VantResolver } from 'unplugin-vue-components/resolvers'
 // import { VantResolver } from '@vant/auto-import-resolver'
@@ -36,20 +36,20 @@ export default defineConfig({
 	css: {
 		postcss: {
 			plugins: [
-				// pxToViewport({
-				// 	unitToConvert: 'px', // 要转换的单位
-				// 	viewportWidth: 750, // UI 设计稿宽度
-				// 	unitPrecision: 5, // 单位转换后保留的精度
-				// 	propList: ['*'], // 指定转换那些属性的单位，* 表示全部
-				// 	viewportUnit: 'vw', // 希望使用的视口单位
-				// 	fontViewportUnit: 'vw', // 字体使用的视口单位
-				// 	selectorBlackList: [], // 要忽略的选择器
-				// 	minPixelValue: 1, // 最小的转换数值
-				// 	mediaQuery: false, // 是否在媒体查询中也转换单位
-				// 	replace: true, // 是否直接更换属性值
-				// 	exclude: [], // 要忽略的文件
-				// 	include: [] // 要包含的文件
-				// })
+				pxToViewport({
+					unitToConvert: 'px', // 要转换的单位
+					viewportWidth: 375, // UI 设计稿宽度
+					unitPrecision: 5, // 单位转换后保留的精度
+					propList: ['*'], // 指定转换那些属性的单位，* 表示全部
+					viewportUnit: 'vw', // 希望使用的视口单位
+					fontViewportUnit: 'vw', // 字体使用的视口单位
+					selectorBlackList: [], // 要忽略的选择器
+					minPixelValue: 1, // 最小的转换数值
+					mediaQuery: false, // 是否在媒体查询中也转换单位
+					replace: true, // 是否直接更换属性值
+					exclude: [], // 要忽略的文件
+					include: [] // 要包含的文件
+				})
 			]
 		},
 		preprocessorOptions: {

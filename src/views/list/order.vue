@@ -12,7 +12,7 @@
 	<section class="container">
 		<component :is="render" />
 		<div class="btn-box">
-			<van-button class="btn" type="primary">去签名</van-button>
+			<van-button class="btn" type="primary" @click="handleSign">去签名</van-button>
 		</div>
 	</section>
 </template>
@@ -56,6 +56,10 @@ const render = () => {
 			return params.value.map(item => h(Cell, { title: item.label }, () => item.value))
 		}
 	)
+}
+
+const handleSign = () => {
+	console.log('去签名')
 }
 
 defineExpose({ render })
