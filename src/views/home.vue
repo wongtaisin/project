@@ -1,42 +1,63 @@
-<!--
- * @Author: wingddd wongtaisin1024@gmail.com
- * @Date: 2024-11-13 08:05:37
- * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-14 09:57:35
- * @FilePath: \project\src\views\home.vue
- * @Description:
- *
- * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
--->
 <template>
-	<section class="container">
+	<el-container>
 		<AppAside />
-		<div class="content">
-			<router-view :key="route.path" v-slot="{ Component }">
-				<component :is="Component" />
-			</router-view>
-		</div>
-	</section>
+		<el-container class="header-and-main">
+			<AppHeader />
+			<el-main>
+				<!-- Tab选项卡 -->
+				<AppTabs />
+				<!-- 路由容器 -->
+				<el-scrollbar>
+					<div class="container">
+						<router-view v-slot="{ Component }">
+							<keep-alive :include="keepAliveStore.keepAliveComponents">
+								<Component :is="markRaw(shallowRef(Component).value)" :key="route.fullPath" />
+							</keep-alive>
+						</router-view>
+					</div>
+				</el-scrollbar>
+			</el-main>
+		</el-container>
+	</el-container>
 </template>
 
 <script lang="ts" setup>
 import AppAside from '@/views/aside/AppAside.vue'
+import AppHeader from '@/views/aside/AppHeader.vue'
+import AppTabs from '@/views/aside/AppTabs.vue'
+import { markRaw, shallowRef } from 'vue'
 import { useRoute } from 'vue-router'
 
+import { useKeepAliveStore } from '../pinia/global'
+
 const route = useRoute()
+
+const keepAliveStore = useKeepAliveStore()
 </script>
 
 <style lang="scss" scoped>
+.el-main {
+	background-color: #f0f2f5;
+	overflow: hidden;
+}
+
+.header-and-main {
+	flex-direction: column;
+	height: 100vh;
+}
+
 .container {
-	flex: 1;
-	@include flexbox(space-between, center);
-	.content {
-		flex: 1;
-		padding: 20px;
-		margin-left: 20px;
-		margin-right: 20px;
-		background: white;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-	}
+	padding: 15px;
+	overflow-x: hidden;
+	padding-bottom: 55px;
+}
+
+.el-main {
+	padding: 0;
+	overflow-x: hidden;
+}
+
+.el-scrollbar__wrap {
+	overflow-x: hidden;
 }
 </style>

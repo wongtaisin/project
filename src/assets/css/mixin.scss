@@ -1,75 +1,73 @@
 @mixin w($size) {
-  .w-#{$size} {
-    width: $size;
-  }
+	.w-#{$size} {
+		width: $size * 1%;
+	}
 }
 
 @mixin h($size) {
-  .h-#{$size} {
-    height: $size;
-  }
+	.h-#{$size} {
+		height: $size * 1%;
+	}
 }
 
 @mixin m($type, $size) {
-  @if $type == t {
-    .m#{$type}-#{$size} {
-      margin-top: #{$size}px;
-    }
-  }
-  @if $type == b {
-    .m#{$type}-#{$size} {
-      margin-bottom: #{$size}px;
-    }
-  }
-  @if $type == l {
-    .m#{$type}-#{$size} {
-      margin-left: #{$size}px;
-    }
-  }
-  @if $type == r {
-    .m#{$type}-#{$size} {
-      margin-right: #{$size}px;
-    }
-  }
+	.m#{$type}-#{$size} {
+		@if $type == t {
+			margin-top: #{$size}px;
+		}
+		@if $type == b {
+			margin-bottom: #{$size}px;
+		}
+		@if $type == l {
+			margin-left: #{$size}px;
+		}
+		@if $type == r {
+			margin-right: #{$size}px;
+		}
+	}
 }
 
 @mixin p($type, $size) {
-  @if $type == t {
-    .p#{$type}-#{$size} {
-      padding-top: #{$size}px;
-    }
-  }
-  @if $type == b {
-    .p#{$type}-#{$size} {
-      padding-bottom: #{$size}px;
-    }
-  }
-  @if $type == l {
-    .p#{$type}-#{$size} {
-      padding-left: #{$size}px;
-    }
-  }
-  @if $type == r {
-    .p#{$type}-#{$size} {
-      padding-right: #{$size}px;
-    }
-  }
+	.p#{$type}-#{$size} {
+		@if $type == t {
+			padding-top: #{$size}px;
+		}
+		@if $type == b {
+			padding-bottom: #{$size}px;
+		}
+		@if $type == l {
+			padding-left: #{$size}px;
+		}
+		@if $type == r {
+			padding-right: #{$size}px;
+		}
+	}
 }
 
-@mixin fonts($size, $text, $weight) {
-  font-size: #{$size}px;
-  color: $text;
-  font-weight: $weight;
+@each $type, $size in (top, 5), (bottom, 10), (left, 15), (right, 20) {
+	.p#{$type}-#{$size} {
+		padding: {
+			#{$type}: #{$size}px;
+		}
+	}
+}
+
+@mixin fontStyle($size, $text, $weight) {
+	font: {
+		size: #{$size}px;
+		weight: $weight;
+	}
+	color: $text;
 }
 
 @mixin colors($text, $background, $border) {
-  color: $text;
-  background-color: $background !important;
-  border-color: $border;
+	color: $text;
+	background-color: $background !important;
+	border-color: $border;
 }
 
-@mixin flexbox($content, $align) {
-  display: flex;
-  justify-content: $content;
-  align-items: $align;
+@mixin flexBox($content, $align) {
+	display: flex;
+	justify-content: $content;
+	align-items: $align;
 }

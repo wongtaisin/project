@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-14 17:07:22
+ * @LastEditTime: 2025-04-03 15:01:39
  * @FilePath: \project\src\main.ts
  * @Description: Vue应用入口文件
  *
@@ -10,14 +10,16 @@
  */
 
 // 导入必要的依赖
-import ElementPlus from 'element-plus'
 import { createApp } from 'vue'
 import App from './App.vue'
 import pinia from './pinia/index'
 import router from './router/index'
 
-// 导入样式文件
+// 导入Element Plus相关
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'element-plus/dist/index.css'
+
+// 导入样式文件
 import './assets/css/style.scss'
 import './assets/iconfont/iconfont.css'
 import './assets/iconfont/iconfont.js'
@@ -25,11 +27,16 @@ import './assets/iconfont/iconfont.js'
 // 导入工具函数
 import install from './utils/index'
 
-// 创建Vue应用实例并配置
 const app = createApp(App)
-	.use(router) // 路由配置
-	.use(pinia) // 状态管理
-	.use(ElementPlus) // UI组件库
-	.use(install) // 自定义工具
+
+// 注册Element Plus图标
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+	app.component(key, component)
+}
+
+// 创建Vue应用实例并配置
+const plugins = [pinia, router, install]
+
+plugins.forEach(plugin => app.use(plugin))
 
 app.mount('#app')

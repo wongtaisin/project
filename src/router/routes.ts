@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-14 17:12:47
+ * @LastEditTime: 2025-04-03 11:54:16
  * @FilePath: \project\src\router\routes.ts
  * @Description:
  *
@@ -10,6 +10,8 @@
  */
 
 import { RouteRecordRaw } from 'vue-router'
+import Pcba from './modules/pcba.ts' // Three模块路由
+import Three from './modules/three.ts' // Three模块路由
 type RouteRecordRaw = typeof RouteRecordRaw
 
 const routes: Array<RouteRecordRaw> = [
@@ -30,38 +32,8 @@ const routes: Array<RouteRecordRaw> = [
 			title: '首页'
 		},
 		children: [
-			{
-				path: '/pcba/list',
-				name: 'pcba-list',
-				redirect: '/pcba/order',
-				component: () => import('@/views/list/index.vue'),
-				meta: {
-					title: 'PCBA订单列表',
-					activeMenu: '/pcba/order'
-				},
-				children: [
-					{
-						path: '/pcba/order',
-						component: () => import('@/views/list/modules/order.vue'),
-						name: '订单',
-						meta: {
-							path: '/pcba/order',
-							name: '订单',
-							type: 'pcba-order'
-						}
-					},
-					{
-						path: '/pcba/draft',
-						component: () => import('@/views/list/modules/draft.vue'),
-						name: '草稿',
-						meta: {
-							path: '/pcba/draft',
-							name: '草稿',
-							type: 'pcba-draft'
-						}
-					}
-				]
-			}
+			...Pcba, // 引入PCBA模块路由
+			...Three // 引入Three模块路由
 		]
 	},
 	{
@@ -76,7 +48,7 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/kong/list',
 		name: 'kong-list',
 		redirect: '/kong/order',
-		component: () => import('@/views/list/index.vue'),
+		component: () => import('@/views/kong/index.vue'),
 		meta: {
 			title: '空管理',
 			activeMenu: '/kong/order'
@@ -84,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
 		children: [
 			{
 				path: '/kong/order',
-				component: () => import('@/views/list/modules/order.vue'),
+				component: () => import('@/views/kong/modules/order.vue'),
 				name: '空列表',
 				meta: {
 					path: '/kong/order',
@@ -94,7 +66,7 @@ const routes: Array<RouteRecordRaw> = [
 			},
 			{
 				path: '/kong/draft',
-				component: () => import('@/views/list/modules/draft.vue'),
+				component: () => import('@/views/kong/modules/draft.vue'),
 				name: '空草稿',
 				meta: {
 					path: '/kong/draft',

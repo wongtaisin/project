@@ -2,8 +2,8 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-15 13:46:29
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-11 15:41:51
- * @FilePath: \project\src\views\list\modules\order.vue
+ * @LastEditTime: 2025-04-03 15:32:33
+ * @FilePath: \project\src\views\kong\modules\order.vue
  * @Description: 订单列表页面
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
@@ -11,7 +11,7 @@
 <template>
 	<div class="pcba-order">
 		<el-tabs @tab-click="handleTabClick" class="demo-tabs" v-model="activeTabName">
-			<el-tab-pane label="所有订单" name />
+			<el-tab-pane label="所有订单" name="" />
 			<el-tab-pane label="待审核" name="0" />
 			<el-tab-pane label="待确认" name="1" />
 			<el-tab-pane label="待发货" name="2" />
@@ -26,7 +26,7 @@
 					</el-form-item>
 				</el-col>
 				<el-col :span="6">
-					<el-form-item label="下单时间" prop="ordreStartTime">
+					<el-form-item label="下单时间" prop="orderStartTime">
 						<el-date-picker
 							@change="handleDateTimeChange"
 							end-placeholder="结束日期"
@@ -56,18 +56,18 @@
 				</template>
 			</el-table-column>
 			<el-table-column label="订单编号" prop="orderNo" />
-			<el-table-column label="下单时间" prop="ordreTime" />
+			<el-table-column label="下单时间" prop="orderTime" />
 			<el-table-column label="文件" prop="address" width="350">
 				<template #default="scope">
 					<div :key="i" class="file-item" v-for="(item, i) in scope.row.fileList">
-						<div class="file-title">{{ item.filetitle }}：</div>
+						<div class="file-title">{{ item.fileTitle }}：</div>
 						<div @click="handleFileDownload(item)" class="file-name">{{ item.fileName }}</div>
 					</div>
 				</template>
 			</el-table-column>
 			<el-table-column label="数量" prop="actualAmount">
 				<template #default="scope">
-					<p>{{ scope.row.productConut }}pcs</p>
+					<p>{{ scope.row.productCount }}pcs</p>
 					<p v-if="scope.row.isSingle == '1'">单层</p>
 					<p v-else>双层</p>
 					<p>拼版 {{ scope.row.panelWay }}</p>
@@ -131,7 +131,7 @@ const calcTableHeight = () => {
 }
 
 // 获取用户信息
-const userInfo = computed(() => getInfo().data)
+const userInfo = computed<any>(() => getInfo().data)
 
 // 标签页相关
 const activeTabName = ref('')
@@ -145,8 +145,8 @@ const handleTabClick = (tab: TabsPaneContext) => {
 const dateTimeRange = ref('')
 const handleDateTimeChange = () => {
 	const [start, end] = dateTimeRange.value || []
-	params.ordreStartTime = start || ''
-	params.ordreEndTime = end || ''
+	params.orderStartTime = start || ''
+	params.orderEndTime = end || ''
 }
 
 // 搜索处理
@@ -159,8 +159,8 @@ const handleSearch = () => {
 const params = reactive<any>({
 	orderNo: '',
 	orderStatus: '',
-	ordreEndTime: '',
-	ordreStartTime: '',
+	orderEndTime: '',
+	orderStartTime: '',
 	userId: userInfo.value.userId || 110
 })
 
@@ -186,36 +186,36 @@ const orderListLoad = async () => {
 	tableData.value = [
 		{
 			orderNo: 'JY20241123175709140',
-			ordreTime: '2024-11-23 17:57:09',
-			ordreStartTime: null,
-			ordreEndTime: null,
+			orderTime: '2024-11-23 17:57:09',
+			orderStartTime: null,
+			orderEndTime: null,
 			fileList: [
 				{
 					id: '209',
 					fileName: 'setting - 副本.xlsx',
-					filetitle: 'Gerber文件',
+					fileTitle: 'Gerber文件',
 					fileTypeId: '1'
 				},
 				{
 					id: '207',
 					fileName: '柔性制造订单流程及系统说明 - 副本.xlsx',
-					filetitle: '钢网文件',
+					fileTitle: '钢网文件',
 					fileTypeId: '2'
 				},
 				{
 					id: '206',
 					fileName: 'setting - 副本.xlsx',
-					filetitle: 'BOM清单',
+					fileTitle: 'BOM清单',
 					fileTypeId: '3'
 				},
 				{
 					id: '208',
 					fileName: '柔性制造订单流程及系统说明 - 副本.xlsx',
-					filetitle: '坐标文件',
+					fileTitle: '坐标文件',
 					fileTypeId: '4'
 				}
 			],
-			productConut: '7',
+			productCount: '7',
 			isSingle: '2',
 			panelWay: '1x1',
 			estimatedAmount: '2175.3666',

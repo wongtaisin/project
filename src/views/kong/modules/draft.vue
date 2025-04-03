@@ -2,8 +2,8 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-15 13:46:29
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-10 11:48:58
- * @FilePath: \project\src\views\pcbaList\modules\draft.vue
+ * @LastEditTime: 2025-04-03 15:34:27
+ * @FilePath: \project\src\views\kong\modules\draft.vue
  * @Description: 草稿列表页面
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
@@ -18,7 +18,7 @@
 					</el-form-item>
 				</el-col>
 				<el-col :span="6">
-					<el-form-item label="保存时间" prop="ordreStartTime">
+					<el-form-item label="保存时间" prop="orderStartTime">
 						<el-date-picker
 							@change="handleTime"
 							end-placeholder="结束日期"
@@ -48,18 +48,18 @@
 				}}</template>
 			</el-table-column>
 			<el-table-column label="订单编号" prop="orderNo" />
-			<el-table-column label="下单时间" prop="ordreTime" />
+			<el-table-column label="下单时间" prop="orderTime" />
 			<el-table-column label="文件" prop="address" width="350">
 				<template #default="scope">
 					<div :key="i" class="file-item" v-for="(item, i) in scope.row.fileList">
-						<div class="file-title">{{ item.filetitle }}：</div>
+						<div class="file-title">{{ item.fileTitle }}：</div>
 						<div @click="handleFileDownload(item)" class="fileSty">{{ item.fileName }}</div>
 					</div>
 				</template>
 			</el-table-column>
 			<el-table-column label="数量" prop="actualAmount">
 				<template #default="scope">
-					<p>{{ scope.row.productConut }}pcs</p>
+					<p>{{ scope.row.productCount }}pcs</p>
 					<p v-if="scope.row.isSingle == '1'">单层</p>
 					<p v-else>双层</p>
 					<p>拼版 {{ scope.row.panelWay }}</p>
@@ -103,14 +103,14 @@ import { useRouter } from 'vue-router'
 const mockData = [
 	{
 		orderNo: 'DR2024001',
-		ordreTime: '2024-01-01 10:00:00',
+		orderTime: '2024-01-01 10:00:00',
 		fileList: [
 			{
-				filetitle: 'PCB文件',
+				fileTitle: 'PCB文件',
 				fileName: 'pcb_design_v1.zip'
 			}
 		],
-		productConut: 100,
+		productCount: 100,
 		isSingle: '1',
 		panelWay: '2x2',
 		estimatedAmount: '1000.00',
@@ -129,7 +129,7 @@ onMounted(() => {
 
 const userInfo = computed(() => ({
 	userId: '110',
-	username: 'huangguangjun'
+	username: 'huang'
 }))
 
 const dateTime = ref('')
@@ -137,11 +137,11 @@ const dateTime = ref('')
 // 时间选择处理
 const handleTime = () => {
 	if (dateTime.value && dateTime.value.length === 2) {
-		params.ordreStartTime = dateTime.value[0]
-		params.ordreEndTime = dateTime.value[1]
+		params.orderStartTime = dateTime.value[0]
+		params.orderEndTime = dateTime.value[1]
 	} else {
-		params.ordreStartTime = ''
-		params.ordreEndTime = ''
+		params.orderStartTime = ''
+		params.orderEndTime = ''
 	}
 }
 
@@ -153,8 +153,8 @@ const onSubmit = () => {
 const params = reactive<any>({
 	orderNo: '',
 	orderStatus: '',
-	ordreEndTime: '',
-	ordreStartTime: '',
+	orderEndTime: '',
+	orderStartTime: '',
 	userId: userInfo.value.userId
 })
 

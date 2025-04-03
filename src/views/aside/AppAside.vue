@@ -1,19 +1,22 @@
 <template>
-	<div class="left-menu-item">
-		<el-menu :default-active="onRoutes" router unique-opened>
-			<div class="logo pt-20 pb-20" href="/">
-				<img class="mr-10" src="@/assets/images/Vitejs-logo.png" />
-				<h1>Vite + Vue3 + TS + PINIA</h1>
-			</div>
-			<LeftMenuItem :item="item" :key="i" v-for="(item, i) in menu" />
-		</el-menu>
-	</div>
+	<el-aside width="200px">
+		<div class="left-menu-item">
+			<el-menu :default-active="onRoutes" router unique-opened>
+				<div class="logo pt-20 pb-20" href="/">
+					<img class="mr-10" src="@/assets/images/Vitejs-logo.png" />
+					<h1>Vite + Vue3 + TS + PINIA</h1>
+				</div>
+				<LeftMenuItem :item="item" :key="i" v-for="(item, i) in menu" />
+			</el-menu>
+		</div>
+	</el-aside>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
-import { useRoute } from 'vue-router';
-import LeftMenuItem from './LeftMenuItem.vue';
+import { getAllMenu } from '@/axios/menu'
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import LeftMenuItem from './LeftMenuItem.vue'
 
 interface MenuItem {
 	value: string
@@ -25,51 +28,24 @@ interface MenuItem {
 	children?: MenuItem[]
 }
 
-const menu = ref<MenuItem[]>([
-	{
-		value: '001',
-		name: '计价下单',
-		title: 'pcba/valuation',
-		path: '/pcba/valuation',
-		icon: 'icon-dingdanliebiao'
-	},
-	{
-		value: '002',
-		name: '订单列表',
-		title: 'pcba-list',
-		path: '/pcba/order',
-		icon: 'icon-caogao1'
-	},
-	{
-		value: '003',
-		name: '空管理',
-		title: 'kong-list',
-		path: '/kong/order',
-		icon: 'icon-caogao1',
-		children: [
-			{
-				value: '003001',
-				name: '空列表',
-				title: 'kong-order',
-				path: '/kong/order',
-				icon: 'icon-dingdanliebiao'
-			},
-			{
-				value: '003002',
-				name: '草稿箱',
-				title: 'kong-draft',
-				path: '/kong/draft',
-				icon: 'icon-caogao1'
-			}
-		]
-	}
-])
-
 const route = useRoute()
 
-const onRoutes = computed(() => {
-	return route.meta.activeMenu || route.path
+// 菜单列表
+const menu = ref<MenuItem[]>([])
+
+// 获取菜单列表
+const getMenu = async () => {
+	const res = await getAllMenu()
+	menu.value = res
+}
+
+// 处理路由
+const onRoutes: any = computed(() => {
+	if (route.meta.activeMenu) return route.meta.activeMenu
+	return route.path
 })
+
+getMenu()
 </script>
 
 <style lang="scss" scoped>
@@ -78,7 +54,7 @@ const onRoutes = computed(() => {
 @include m(r, 10);
 
 .left-menu-item {
-	width: 200px;
+	width: 100%;
 	background: #001529;
 	height: 100vh;
 	.logo {

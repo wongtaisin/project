@@ -1,0 +1,53 @@
+[
+	{
+		"value": "001",
+		"name": "计价下单",
+		"title": "pcba/valuation",
+		"path": "/pcba/valuation",
+		"icon": "icon-dingdanliebiao"
+	},
+	{
+		"value": "002",
+		"name": "订单管理",
+		"title": "pcba-list",
+		"path": "/pcba/order",
+		"icon": "icon-caogao1",
+		"children": [
+			{
+				"value": "002001",
+				"name": "订单列表",
+				"title": "pcba-order",
+				"path": "/pcba/order",
+				"icon": "icon-dingdanliebiao"
+			},
+			{
+				"value": "002002",
+				"name": "订单草稿箱",
+				"title": "pcba-draft",
+				"path": "/pcba/draft",
+				"icon": "icon-caogao1"
+			}
+		]
+	},
+	{
+		"value": "003001",
+		"name": "空列表",
+		"title": "kong-order",
+		"path": "/kong/order",
+		"icon": "icon-dingdanliebiao"
+	},
+	{
+		"value": "003002",
+		"name": "草稿箱",
+		"title": "kong-draft",
+		"path": "/kong/draft",
+		"icon": "icon-caogao1"
+	},
+	{
+		"value": "004",
+		"name": "three",
+		"title": "three-list",
+		"path": "/three/list",
+		"icon": "icon-caogao1"
+	}
+]
