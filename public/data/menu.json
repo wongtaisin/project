@@ -48,6 +48,22 @@
 		"name": "three",
 		"title": "three-list",
 		"path": "/three/list",
-		"icon": "icon-caogao1"
+		"icon": "icon-caogao1",
+		"children": [
+			{
+				"value": "004001",
+				"name": "three列表",
+				"title": "three-list",
+				"path": "/three/list",
+				"icon": "icon-dingdanliebiao"
+			},
+			{
+				"value": "004002",
+				"name": "three工厂",
+				"title": "three-factory",
+				"path": "/three/factory",
+				"icon": "icon-caogao1"
+			}
+		]
 	}
 ]

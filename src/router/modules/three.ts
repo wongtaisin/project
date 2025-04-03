@@ -28,6 +28,16 @@ export default [
 					name: 'three列表',
 					type: 'three-list'
 				}
+			},
+			{
+				path: '/three/factory',
+				component: () => import('@/views/three/factory/index.vue'),
+				name: 'three工厂',
+				meta: {
+					path: '/three/factory',
+					name: 'three工厂',
+					type: 'three-factory'
+				}
 			}
 		]
 	}
