@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-02-07 08:32:24
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-04-10 17:18:18
+ * @LastEditTime: 2025-04-10 17:21:05
  * @FilePath: \project\src\pages\index\index.vue
  * @Description:
  *
@@ -10,16 +10,18 @@
 -->
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png" />
+		<image class="logo" src="@/static/logo.png" />
 		<view class="text-area">
-			<text class="title">{{ title }}</text>
+			<Component :is="textRender" />
 		</view>
 	</view>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
 import { ref } from 'vue'
 const title = ref('Hello wongtaisin1024')
+
+const textRender = () => <text class="title">{title.value}</text>
 </script>
 
 <style scoped lang="scss">
