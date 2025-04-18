@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2025-02-07 08:32:24
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-04-10 17:21:05
+ * @LastEditTime: 2025-04-17 16:56:58
  * @FilePath: \project\src\pages\index\index.vue
  * @Description:
  *
@@ -21,7 +21,7 @@
 import { ref } from 'vue'
 const title = ref('Hello wongtaisin1024')
 
-const textRender = () => <text class="title">{title.value}</text>
+const textRender = () => <span class="title">{title.value}</span>
 </script>
 
 <style scoped lang="scss">
