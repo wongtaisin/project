@@ -15,14 +15,14 @@
 		"children": [
 			{
 				"value": "002001",
-				"name": "列表",
+				"name": "订单列表",
 				"title": "order-list",
 				"path": "/order/list",
 				"icon": "icon-dingdanliebiao"
 			},
 			{
 				"value": "002002",
-				"name": "草稿箱",
+				"name": "订单草稿箱",
 				"title": "order-draft",
 				"path": "/order/draft",
 				"icon": "icon-caogao1"
@@ -45,14 +45,14 @@
 		"children": [
 			{
 				"value": "004001",
-				"name": "列表",
+				"name": "three列表",
 				"title": "three-list",
 				"path": "/three/list",
 				"icon": "icon-dingdanliebiao"
 			},
 			{
 				"value": "004002",
-				"name": "工厂",
+				"name": "three工厂",
 				"title": "three-factory",
 				"path": "/three/factory",
 				"icon": "icon-caogao1"

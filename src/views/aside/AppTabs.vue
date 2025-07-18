@@ -20,14 +20,14 @@
 					<el-icon @click.prevent="handleCloseTab(item.name)"><Close /></el-icon>
 				</div>
 			</router-link>
-			<el-tabs class="demo-tabs" closable @tab-click="handleUrl">
+			<!-- <el-tabs closable @tab-click="handleUrl">
 				<el-tab-pane
 					v-for="(item, i) in tabsStore.getTabs"
 					:key="i"
 					:label="item.name"
 					:name="item.path"
 				/>
-			</el-tabs>
+			</el-tabs> -->
 		</div>
 
 		<!-- tabs选项卡右侧下拉菜单 -->
@@ -67,11 +67,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useTabsStore } from '@/pinia/tabs'
 import { useRoute, useRouter } from 'vue-router'
-import { useTabsStore } from '../../pinia/tabs'
 
-const tabsStore: any = useTabsStore()
-
+const tabsStore = useTabsStore()
 const router = useRouter()
 const route = useRoute()
 
@@ -86,12 +85,14 @@ const handleCloseTab = (name: unknown) => {
 		router.push('/')
 	}
 }
+
 // 关闭当前tabs标签左侧的标签
 const handleCloseTabLeft = (name: unknown) => {
 	const index = tabsStore.getTabs.findIndex((obj: { name: unknown }) => obj.name === name)
 	const newArr = tabsStore.getTabs.splice(0, index)
 	tabsStore.copyTabs(tabsStore.getTabs)
 }
+
 // 关闭当前tabs标签右侧的标签
 const handleCloseTabRight = (name: unknown) => {
 	const arr = tabsStore.getTabs
@@ -144,10 +145,10 @@ const handleTab = (data: string) => {
 	}
 }
 
-const handleUrl = (url: any) => {
-	console.log('flush', url.props.name)
-	router.push(url.props.name)
-}
+// const handleUrl = (url: any) => {
+// 	console.log('flush', url.props.name)
+// 	router.push(url.props.name)
+// }
 </script>
 
 <style lang="scss" scoped>

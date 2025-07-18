@@ -1,12 +1,12 @@
 /*
- * @作者: wingddd wongtaisin1024@gmail.com
- * @日期: 2025-04-03 14:16:34
- * @最后编辑者: wingddd wongtaisin1024@gmail.com
- * @最后编辑时间: 2024-12-02 11:19:12
- * @文件路径: /D:/project/src/pinia/tabs.ts
- * @描述: 用于管理标签页的 Pinia store，支持持久化存储
+ * @Author: wingddd wongtaisin1024@gmail.com
+ * @Date: 2025-04-03 14:16:34
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2025-07-18 13:50:13
+ * @FilePath: \project\src\pinia\tabs.ts
+ * @Description: 用于管理标签页的 Pinia store，支持持久化存储
  *
- * 版权所有 (c) 2024 wongtaisin1024@gmail.com，保留所有权利。
+ * Copyright (c) 2025 by wongtaisin1024@gmail.com, All Rights Reserved.
  */
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
