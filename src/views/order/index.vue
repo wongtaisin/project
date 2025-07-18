@@ -1,35 +1,27 @@
 <!--
- * @Author: wingddd wongtaisin1024@gmial.com
- * @Date: 2024-11-13 10:12:45
- * @LastEditors: wingddd wongtaisin1024@gmial.com
- * @LastEditTime: 2024-11-15 08:38:38
- * @FilePath: \project\src\views\order\index.vue
- * @Description: PCB在线下单平台
+ * @Author: wingddd wongtaisin1024@gmail.com
+ * @Date: 2024-11-21 11:44:41
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2025-04-03 13:38:43
+ * @FilePath: \project\src\views\pcba\index.vue
+ * @Description: PCBA订单和草稿列表页面
+ *
+ * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
 -->
 <template>
-	<section>
-		<OrderTop />
-		<div class="order">
-			<OrderLeft />
-			<OrderMiddle />
-			<OrderRight />
-		</div>
-	</section>
+	<div class="pcba-container w-100">
+		<router-view :key="route.path" v-slot="{ Component }">
+			<component :is="Component" />
+		</router-view>
+	</div>
 </template>
 
 <script lang="ts" setup>
-import OrderLeft from './common/left.vue'
-import OrderMiddle from './common/middle.vue'
-import OrderRight from './common/right.vue'
-import OrderTop from './common/top.vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 </script>
 
 <style lang="scss" scoped>
-.order {
-	max-width: 1540px;
-	min-width: 1280px;
-	margin: 0 auto;
-	display: flex;
-	padding-top: 20px;
-}
+@include w(100);
 </style>

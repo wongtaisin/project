@@ -26,16 +26,18 @@
 
 		<!-- 工具栏 -->
 		<div class="tools" :style="{ color: styleForm.header.txtColor }">
-			<span v-show="!isFullScreen" @click="fullScreen" style="padding-top: 3px">
+			<span class="mr-15" v-show="!isFullScreen" @click="fullScreen" style="padding-top: 3px">
 				<el-tooltip effect="dark" content="进入全屏" placement="bottom">
 					<el-icon><FullScreen /></el-icon>
 				</el-tooltip>
 			</span>
-			<span v-show="isFullScreen" @click="cancelFullScreen" style="padding-top: 3px">
+			<span class="mr-15" v-show="isFullScreen" @click="cancelFullScreen" style="padding-top: 3px">
 				<el-tooltip effect="dark" content="取消全屏" placement="bottom">
 					<el-icon size="20"><Monitor /></el-icon>
 				</el-tooltip>
 			</span>
+
+			<DarkBg class="mr-15" />
 		</div>
 
 		<!-- 用户信息 -->
@@ -74,8 +76,8 @@
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { computed, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-
 import { isCollapse } from '../configCenter' // 左侧菜单折叠和头部折叠按钮切换开关
+import DarkBg from './dark.vue'
 
 // 导入Pinia 状态库
 import { useGlobalConfigStore } from '../../pinia/globalConfig'
@@ -171,6 +173,8 @@ let styleForm = reactive({
 </script>
 
 <style lang="scss" scoped>
+@include m(r, 15);
+
 .common-aside {
 	padding: 0% 20px;
 	height: 59px;
@@ -181,7 +185,6 @@ let styleForm = reactive({
 
 .tools {
 	margin-left: auto;
-	margin-right: 50px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;

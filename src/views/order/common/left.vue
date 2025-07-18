@@ -1,29 +1,14 @@
-<!--
- * @Author: wingddd wongtaisin1024@gmial.com
- * @Date: 2024-11-13 9:02:55
- * @LastEditors: wingddd wongtaisin1024@gmial.com
- * @LastEditTime: 2024-11-14 17:30:44
- * @FilePath: \project\src\views\order\common\left.vue
- * @Description: left
--->
 <template>
 	<section>
 		<el-affix :offset="80">
 			<div class="left">
 				<el-anchor :offset="100">
-					<el-anchor-link :href="`#${res['title']}`" :key="i" class="menu" v-for="(res, i) in item">
-						<!-- <i :class="`iconfont` + ' ' + res.icon" /> -->
+					<div :key="i" @click="handleClick(res.title)" class="menu" v-for="(res, i) in item">
 						<svg aria-hidden="true" class="icon" style="width: 36px; height: 36px">
-							<use :xlink:href="`#` + res.icon" />
+							<use :xlink:href="`#${res.icon}`" />
 						</svg>
-						<div class="font">{{ res['font'] }}</div>
-					</el-anchor-link>
-					<!-- <div :key="i" class="menu" v-for="(res, i) in item">
-						<svg aria-hidden="true" class="icon" style="width: 36px; height: 36px;">
-							<use :xlink:href="`#`+res.icon" />
-						</svg>
-						<p>{{ res.font }}</p>
-					</div>-->
+						<div class="font">{{ res.font }}</div>
+					</div>
 				</el-anchor>
 			</div>
 		</el-affix>
@@ -32,60 +17,57 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
 const item = ref([
 	{
-		icon: 'icon-shangchuanwenjian',
-		font: '上传文件',
-		title: 'upload'
+		icon: 'icon-dingdan',
+		font: '订单',
+		title: 'order'
 	},
 	{
-		icon: 'icon-jibenxinxi1',
-		font: '基本信息',
-		title: 'information'
-	},
-	{
-		icon: 'icon-qitachajianqu',
-		font: 'SMT贴片及插件',
-		title: 'smt'
-	},
-	{
-		icon: 'icon-routing-orange',
-		font: '制造工艺',
-		title: 'craft'
-	},
-	{
-		icon: 'icon-kuaidi',
-		font: '包装类型',
-		title: 'pack'
-	},
-	{
-		icon: 'icon-kuaidichaxun',
-		font: '发货/快递',
-		title: 'expressage'
+		icon: 'icon-caogao',
+		font: '草稿',
+		title: 'draft'
 	}
 ])
+
+const router = useRouter()
+
+const handleClick = (tab: any) => {
+	if (tab === 'order') router.push({ path: '/pcbaOrder' })
+	if (tab === 'draft') router.push({ path: '/pcbaDraft' })
+}
 </script>
 
 <style lang="scss" scoped>
 .left {
-	// box-shadow: 2px 2px 5px 2px #888888;
 	background: white;
 	width: 66px;
 	padding: 0px 10px 20px;
+	margin-right: 20px;
+
 	.menu {
 		text-align: center;
 		padding-top: 20px;
+
+		cursor: pointer;
+
 		i {
 			font-size: 32px;
 		}
+
 		.font {
 			width: 66px;
+			color: #909399;
 			white-space: pre-wrap;
 		}
 	}
+
 	:deep(.el-anchor.el-anchor--vertical .el-anchor__list) {
 		padding-left: 0;
 	}
+
 	:deep(.el-anchor.el-anchor--vertical .el-anchor__marker) {
 		width: 0;
 	}

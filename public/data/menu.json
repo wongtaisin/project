@@ -9,22 +9,22 @@
 	{
 		"value": "002",
 		"name": "订单管理",
-		"title": "pcba-list",
-		"path": "/pcba/order",
+		"title": "order",
+		"path": "/order",
 		"icon": "icon-caogao1",
 		"children": [
 			{
 				"value": "002001",
-				"name": "订单列表",
-				"title": "pcba-order",
-				"path": "/pcba/order",
+				"name": "列表",
+				"title": "order-list",
+				"path": "/order/list",
 				"icon": "icon-dingdanliebiao"
 			},
 			{
 				"value": "002002",
-				"name": "订单草稿箱",
-				"title": "pcba-draft",
-				"path": "/pcba/draft",
+				"name": "草稿箱",
+				"title": "order-draft",
+				"path": "/order/draft",
 				"icon": "icon-caogao1"
 			}
 		]
@@ -37,13 +37,6 @@
 		"icon": "icon-dingdanliebiao"
 	},
 	{
-		"value": "003002",
-		"name": "草稿箱",
-		"title": "kong-draft",
-		"path": "/kong/draft",
-		"icon": "icon-caogao1"
-	},
-	{
 		"value": "004",
 		"name": "three",
 		"title": "three-list",
@@ -52,14 +45,14 @@
 		"children": [
 			{
 				"value": "004001",
-				"name": "three列表",
+				"name": "列表",
 				"title": "three-list",
 				"path": "/three/list",
 				"icon": "icon-dingdanliebiao"
 			},
 			{
 				"value": "004002",
-				"name": "three工厂",
+				"name": "工厂",
 				"title": "three-factory",
 				"path": "/three/factory",
 				"icon": "icon-caogao1"

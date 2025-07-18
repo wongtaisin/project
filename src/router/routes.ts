@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-04-03 11:54:16
+ * @LastEditTime: 2025-07-18 11:31:58
  * @FilePath: \project\src\router\routes.ts
  * @Description:
  *
@@ -10,8 +10,8 @@
  */
 
 import { RouteRecordRaw } from 'vue-router'
-import Pcba from './modules/pcba.ts' // Three模块路由
-import Three from './modules/three.ts' // Three模块路由
+import Order from './modules/order' // Order模块路由
+import Three from './modules/three' // Three模块路由
 type RouteRecordRaw = typeof RouteRecordRaw
 
 const routes: Array<RouteRecordRaw> = [
@@ -26,20 +26,20 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/',
 		name: 'Home',
-		redirect: 'pcba/valuation',
+		redirect: '/order/list',
 		component: () => import('@/views/home.vue'),
 		meta: {
 			title: '首页'
 		},
 		children: [
-			...Pcba, // 引入PCBA模块路由
+			...Order, // 引入Order模块路由
 			...Three // 引入Three模块路由
 		]
 	},
 	{
 		path: '/pcba/valuation',
 		name: 'pcba-valuation',
-		component: () => import('@/views/order/index.vue'),
+		component: () => import('@/views/pcba/index.vue'),
 		meta: {
 			title: '计价下单'
 		}
