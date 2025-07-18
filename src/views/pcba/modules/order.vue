@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-15 13:46:29
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-04-03 15:35:01
+ * @LastEditTime: 2025-07-18 10:10:22
  * @FilePath: \project\src\views\pcba\modules\order.vue
  * @Description: 订单列表页面
  *
@@ -46,7 +46,6 @@
 		<el-table
 			:data="tableData"
 			:header-cell-style="{ background: '#f5f7fA', color: '#606266' }"
-			:height="calcTableHeight()"
 			border
 			stripe
 		>
@@ -125,11 +124,6 @@ import { orderListInit } from '@/pinia/modules/order'
 import { ElMessage, ElMessageBox, TabsPaneContext } from 'element-plus'
 import { computed, onMounted, reactive, ref } from 'vue'
 import OrderDetails from '../common/details.vue'
-
-// 计算表格高度
-const calcTableHeight = () => {
-	return document.body.scrollHeight - 280
-}
 
 const userInfo = computed<any>(() => getInfo().data)
 

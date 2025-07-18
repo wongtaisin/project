@@ -1,5 +1,6 @@
 <template>
-	<el-header
+	<div
+		class="common-aside"
 		:style="{ backgroundColor: styleForm.header.bgColor, color: styleForm.header.txtColor }"
 	>
 		<!-- 图标 -->
@@ -63,7 +64,7 @@
 				</el-dropdown-menu>
 			</template>
 		</el-dropdown>
-	</el-header>
+	</div>
 
 	<!-- 修改密码组件 -->
 	<ChangePass ref="dialogChangePass" />
@@ -74,7 +75,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { computed, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { isCollapse } from '../configCenter.ts' // 左侧菜单折叠和头部折叠按钮切换开关
+import { isCollapse } from '../configCenter' // 左侧菜单折叠和头部折叠按钮切换开关
 
 // 导入Pinia 状态库
 import { useGlobalConfigStore } from '../../pinia/globalConfig'
@@ -94,7 +95,7 @@ const userStore = useUserStore()
 const userInfo = ref<any>({})
 userInfo.value = userStore.userInfo
 
-// const portrait = ref('@/assets/images/avator/avator05.png')\
+// const portrait = ref('@/assets/images/avator/avator05.png')
 const portrait = ref(
 	'https://img0.baidu.com/it/u=4060187940,3351722992&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500'
 )
@@ -170,18 +171,12 @@ let styleForm = reactive({
 </script>
 
 <style lang="scss" scoped>
-.el-header {
-	height: 56px;
+.common-aside {
+	padding: 0% 20px;
+	height: 59px;
 	display: flex;
 	align-items: center;
 	border-bottom: 1px solid #efefef;
-}
-.el-dropdown {
-	float: right;
-	.el-dropdown-link {
-		display: flex;
-		align-items: center;
-	}
 }
 
 .tools {
@@ -191,11 +186,21 @@ let styleForm = reactive({
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+
+	span {
+		margin-left: 8px;
+		margin-right: 8px;
+	}
 }
-.tools span {
-	margin-left: 8px;
-	margin-right: 8px;
+
+.el-dropdown {
+	float: right;
+	.el-dropdown-link {
+		display: flex;
+		align-items: center;
+	}
 }
+
 .el-breadcrumb {
 	margin-left: 20px;
 }

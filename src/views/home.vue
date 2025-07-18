@@ -1,22 +1,28 @@
 <template>
 	<el-container>
-		<AppAside />
-		<el-container class="header-and-main">
-			<AppHeader />
-			<el-main>
-				<!-- Tab选项卡 -->
-				<AppTabs />
-				<!-- 路由容器 -->
-				<el-scrollbar>
-					<div class="container">
-						<router-view v-slot="{ Component }">
-							<keep-alive :include="keepAliveStore.keepAliveComponents">
-								<Component :is="markRaw(shallowRef(Component).value)" :key="route.fullPath" />
-							</keep-alive>
-						</router-view>
-					</div>
-				</el-scrollbar>
-			</el-main>
+		<el-aside width="200px" height="100vh">
+			<AppAside />
+		</el-aside>
+
+		<el-container>
+			<el-header>
+				<AppHeader />
+			</el-header>
+
+			<!-- Tab选项卡 -->
+			<AppTabs />
+
+			<!-- 主内容区 -->
+			<el-scrollbar style="height: calc(100vh - 100px)">
+				<el-main>
+					<!-- 路由容器 -->
+					<router-view v-slot="{ Component }">
+						<keep-alive :include="keepAliveStore.keepAliveComponents">
+							<Component :is="markRaw(shallowRef(Component).value)" :key="route.fullPath" />
+						</keep-alive>
+					</router-view>
+				</el-main>
+			</el-scrollbar>
 		</el-container>
 	</el-container>
 </template>
@@ -36,28 +42,9 @@ const keepAliveStore = useKeepAliveStore()
 </script>
 
 <style lang="scss" scoped>
-.el-main {
-	background-color: #f0f2f5;
-	overflow: hidden;
-}
-
-.header-and-main {
-	flex-direction: column;
-	height: 100vh;
-}
-
-.container {
-	padding: 15px;
-	overflow-x: hidden;
-	padding-bottom: 55px;
-}
-
-.el-main {
-	padding: 0;
-	overflow-x: hidden;
-}
-
-.el-scrollbar__wrap {
-	overflow-x: hidden;
+:deep {
+	.el-header {
+		padding: 0;
+	}
 }
 </style>

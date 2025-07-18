@@ -1,15 +1,15 @@
 <template>
-	<el-aside width="200px">
-		<div class="left-menu-item">
-			<el-menu :default-active="onRoutes" router unique-opened>
-				<div class="logo pt-20 pb-20" href="/">
-					<img class="mr-10" src="@/assets/images/Vitejs-logo.png" />
-					<h1>Vite + Vue3 + TS + PINIA</h1>
-				</div>
+	<div class="left-menu-item">
+		<el-menu :default-active="onRoutes" router unique-opened>
+			<div class="logo pt-20 pb-20" href="/">
+				<img class="mr-10" src="@/assets/images/Vitejs-logo.png" />
+				<h1>Vite + Vue3 + TS + PINIA</h1>
+			</div>
+			<el-scrollbar style="height: calc(100vh - 134px)">
 				<LeftMenuItem :item="item" :key="i" v-for="(item, i) in menu" />
-			</el-menu>
-		</div>
-	</el-aside>
+			</el-scrollbar>
+		</el-menu>
+	</div>
 </template>
 
 <script lang="ts" setup>
@@ -54,16 +54,18 @@ getMenu()
 @include m(r, 10);
 
 .left-menu-item {
-	width: 100%;
 	background: #001529;
 	height: 100vh;
+
 	.logo {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
 		img {
 			width: 50px;
 		}
+
 		h1 {
 			color: white;
 			font-size: 20px;

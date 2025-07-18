@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:04:56
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-04-03 15:02:47
+ * @LastEditTime: 2025-07-18 09:57:44
  * @FilePath: \project\vite.config.ts
  * @Description: Vite 配置文件
  *
@@ -77,7 +77,7 @@ export default defineConfig({
 	},
 	server: {
 		host: true, // 监听所有地址
-		port: 81, // 开发服务器端口
+		port: 8888, // 开发服务器端口
 		open: true, // 自动打开浏览器
 		cors: false, // 禁用 CORS
 		origin: '/', // 配置本地查看图片 iconfont 的路径需要
