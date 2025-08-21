@@ -1,8 +1,16 @@
+<!--
+ * @Author: wingddd wongtaisin1024@gmail.com
+ * @Date: 2025-07-18 09:52:15
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2025-08-21 10:06:46
+ * @FilePath: \project\src\views\home.vue
+ * @Description:
+ *
+ * Copyright (c) 2025 by wongtaisin1024@gmail.com, All Rights Reserved.
+-->
 <template>
 	<el-container>
-		<el-aside width="200px" height="100vh">
-			<AppAside />
-		</el-aside>
+		<AppAside />
 
 		<el-container>
 			<el-header>

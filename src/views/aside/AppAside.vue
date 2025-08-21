@@ -1,6 +1,6 @@
 <template>
-	<div class="left-menu-item">
-		<el-menu :default-active="onRoutes" router unique-opened>
+	<el-aside>
+		<el-menu :default-active="onRoutes" router unique-opened :collapse="isCollapse">
 			<div class="logo pt-20 pb-20" href="/">
 				<img class="mr-10" src="@/assets/images/Vitejs-logo.png" />
 				<h1>Vite + Vue3 + TS + PINIA</h1>
@@ -9,13 +9,14 @@
 				<LeftMenuItem :item="item" :key="i" v-for="(item, i) in menu" />
 			</el-scrollbar>
 		</el-menu>
-	</div>
+	</el-aside>
 </template>
 
 <script lang="ts" setup>
 import { getAllMenu } from '@/axios/menu'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { isCollapse } from '../configCenter'
 import LeftMenuItem from './LeftMenuItem.vue'
 
 interface MenuItem {
@@ -53,24 +54,25 @@ getMenu()
 @include p(t, 20);
 @include m(r, 10);
 
-.left-menu-item {
-	background: #001529;
+.el-aside {
+	width: auto;
 	height: 100vh;
+}
 
-	.logo {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90px;
 
-		img {
-			width: 50px;
-		}
+	img {
+		width: 50px;
+	}
 
-		h1 {
-			color: white;
-			font-size: 20px;
-			text-decoration: none;
-		}
+	h1 {
+		color: white;
+		font-size: 20px;
+		text-decoration: none;
 	}
 }
 
@@ -78,7 +80,7 @@ getMenu()
 	width: 200px;
 	background: #001529;
 	color: #fff;
-	border: none;
+	border-right: none;
 
 	.el-sub-menu {
 		&.is-active {
@@ -92,6 +94,13 @@ getMenu()
 	.el-menu-item.is-active {
 		background: #247bb4;
 		color: #f1d070;
+	}
+
+	&.el-menu--collapse {
+		width: 60px;
+		& h1 {
+			display: none;
+		}
 	}
 }
 
@@ -107,10 +116,5 @@ getMenu()
 	&:hover {
 		background: #247bb4;
 	}
-}
-
-:deep(.is-active) {
-	background: #247bb4;
-	color: #f1d070;
 }
 </style>
