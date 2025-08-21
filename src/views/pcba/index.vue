@@ -3,8 +3,10 @@
  * @Date: 2024-11-13 10:12:45
  * @LastEditors: wingddd wongtaisin1024@gmial.com
  * @LastEditTime: 2024-11-15 08:38:38
- * @FilePath: \project\src\views\order\index.vue
+ * @FilePath: \project\src\views\pcba\index.vue
  * @Description: PCB在线下单平台
+ *
+ * Copyright (c) 2025 by wongtaisin1024@gmail.com, All Rights Reserved.
 -->
 <template>
 	<section>

@@ -2,7 +2,7 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:04:56
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2025-07-18 09:57:44
+ * @LastEditTime: 2025-08-21 15:42:04
  * @FilePath: \project\vite.config.ts
  * @Description: Vite 配置文件
  *
@@ -46,7 +46,7 @@ export default defineConfig({
 		}),
 		Icons({ autoInstall: true })
 	],
-	base: isProd ? '/' : '/', // 打包路径，根据实际环境来
+	base: isProd ? '/app' : '/', // 打包路径，根据实际环境来
 	css: {
 		preprocessorOptions: {
 			// CSS 预处理器配置
@@ -77,7 +77,7 @@ export default defineConfig({
 	},
 	server: {
 		host: true, // 监听所有地址
-		port: 8888, // 开发服务器端口
+		port: 8001, // 开发服务器端口
 		open: true, // 自动打开浏览器
 		cors: false, // 禁用 CORS
 		origin: '/', // 配置本地查看图片 iconfont 的路径需要

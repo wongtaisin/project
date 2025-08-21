@@ -1,28 +1,20 @@
 <!--
  * @Author: wingddd wongtaisin1024@gmial.com
  * @Date: 2024-11-14 15:02:55
- * @LastEditors: wingddd wongtaisin1024@gmial.com
- * @LastEditTime: 2024-11-14 17:14:34
- * @FilePath: \project\src\views\order\common\fileUpload.vue
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2025-08-21 15:15:50
+ * @FilePath: \project\src\views\pcba\common\fileUpload.vue
  * @Description: 文件上传
+ *
+ * Copyright (c) 2025 by wongtaisin1024@gmail.com, All Rights Reserved.
 -->
 <template>
 	<section>
 		<el-form-item :label="props.title" label-width="100px">
-			<el-upload
-				:before-remove="beforeRemove"
-				:before-upload="beforeUPload"
-				:limit="1"
-				:on-exceed="handleExceed"
-				:on-preview="handlePreview"
-				:on-remove="handleRemove"
-				action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-				:auto-upload="props.autoUupload"
-				class="upload-demo"
-				ref="uploadRef"
-				:http-request="uploadExcel"
-				v-model:file-list="fileList"
-			>
+			<el-upload :before-remove="beforeRemove" :before-upload="beforeUPload" :limit="1" :on-exceed="handleExceed"
+				:on-preview="handlePreview" :on-remove="handleRemove"
+				action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15" :auto-upload="props.autoUpload"
+				class="upload-demo" ref="uploadRef" :http-request="uploadExcel" v-model:file-list="fileList">
 				<template #trigger>
 					<el-button type="primary">
 						<i class="iconfont icon-shangchuan mt-20" />
@@ -44,10 +36,12 @@ import { ref } from 'vue'
 interface Props {
 	title: string
 	tip?: string
-	autoUupload: boolean
+	autoUpload?: boolean
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+	autoUpload: true,
+})
 
 // 上传文件
 const fileList = ref<UploadUserFile[]>([
