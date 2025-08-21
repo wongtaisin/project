@@ -1,12 +1,12 @@
 /*
- * @作者: wingddd wongtaisin1024@gmail.com
- * @日期: 2025-04-03 14:16:34
- * @最后编辑者: wingddd wongtaisin1024@gmail.com
- * @最后编辑时间: 2024-12-02 11:19:12
- * @文件路径: /D:/project/src/pinia/user.ts
- * @描述: 用于管理用户信息的 Pinia store，支持持久化存储
+ * @Author: wingddd wongtaisin1024@gmail.com
+ * @Date: 2025-04-03 14:16:34
+ * @LastEditors: wingddd wongtaisin1024@gmail.com
+ * @LastEditTime: 2025-08-21 11:23:50
+ * @FilePath: \project\src\pinia\user.ts
+ * @Description: 用于管理用户信息的 Pinia store，支持持久化存储
  *
- * 版权所有 (c) 2024 wongtaisin1024@gmail.com，保留所有权利。
+ * Copyright (c) 2025 wongtaisin1024@gmail.com, All Rights Reserved.
  */
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
