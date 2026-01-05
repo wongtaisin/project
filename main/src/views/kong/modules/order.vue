@@ -119,8 +119,8 @@
 </template>
 
 <script lang="ts" setup>
-import { downloadFile } from '@/axios/common'
-import { getInfo } from '@/pinia/actions'
+import { downloadFile } from '@/api/common'
+import { getInfo } from '@/store/actions'
 import { ElMessage, ElMessageBox, TabsPaneContext } from 'element-plus'
 import { computed, onMounted, reactive, ref } from 'vue'
 import OrderDetails from '../common/details.vue'

@@ -13,7 +13,7 @@
 import ElementPlus from 'element-plus'
 import { createApp } from 'vue'
 import App from './App.vue'
-import pinia from './pinia/index'
+import pinia from './store/index'
 import router from './router/index'
 
 // 导入样式文件

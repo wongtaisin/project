@@ -3,7 +3,7 @@
 		<el-menu :default-active="onRoutes" router unique-opened>
 			<div class="logo pt-20 pb-20" href="/">
 				<img class="mr-10" src="@/assets/images/Vitejs-logo.png" />
-				<h1>qiankun + Vite + Vue3 + TS + PINIA</h1>
+				<h1>qiankun</h1>
 			</div>
 			<LeftMenuItem :item="item" :key="i" v-for="(item, i) in menu" />
 		</el-menu>
@@ -26,20 +26,6 @@ interface MenuItem {
 }
 
 const menu = ref<MenuItem[]>([
-	{
-		value: '001',
-		name: '计价下单',
-		title: 'pcba/valuation',
-		path: '/pcba/valuation',
-		icon: 'icon-dingdanliebiao'
-	},
-	{
-		value: '002',
-		name: '订单列表',
-		title: 'pcba-list',
-		path: '/pcba/order',
-		icon: 'icon-caogao1'
-	},
 	{
 		value: '003',
 		name: '空管理',

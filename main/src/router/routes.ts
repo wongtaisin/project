@@ -10,7 +10,6 @@
  */
 
 import { RouteRecordRaw } from 'vue-router'
-type RouteRecordRaw = typeof RouteRecordRaw
 
 const routes: Array<RouteRecordRaw> = [
 	{
@@ -22,54 +21,14 @@ const routes: Array<RouteRecordRaw> = [
 		}
 	},
 	{
-		path: '/pcba/valuation',
-		name: 'pcba-valuation',
-		component: () => import('@/views/order/index.vue'),
-		meta: {
-			title: '计价下单'
-		}
-	},
-	{
 		path: '/',
 		name: 'home',
-		redirect: '/pcba/list',
+		redirect: '/kong/list',
 		component: () => import('@/views/home.vue'),
 		meta: {
 			title: '首页'
 		},
 		children: [
-			{
-				path: '/pcba/list',
-				name: 'pcba-list',
-				redirect: '/pcba/order',
-				component: () => import('@/views/list/index.vue'),
-				meta: {
-					title: 'PCBA订单列表',
-					activeMenu: '/pcba/order'
-				},
-				children: [
-					{
-						path: '/pcba/order',
-						component: () => import('@/views/list/modules/order.vue'),
-						name: '订单',
-						meta: {
-							path: '/pcba/order',
-							name: '订单',
-							type: 'pcba-order'
-						}
-					},
-					{
-						path: '/pcba/draft',
-						component: () => import('@/views/list/modules/draft.vue'),
-						name: '草稿',
-						meta: {
-							path: '/pcba/draft',
-							name: '草稿',
-							type: 'pcba-draft'
-						}
-					}
-				]
-			},
 			// history模式需要通配所有路由，详见vue-router文档
 			{
 				path: '/app/app-vue3/:pathMatch(.*)*',
@@ -89,7 +48,7 @@ const routes: Array<RouteRecordRaw> = [
 		path: '/kong/list',
 		name: 'kong-list',
 		redirect: '/kong/order',
-		component: () => import('@/views/list/index.vue'),
+		component: () => import('@/views/kong/index.vue'),
 		meta: {
 			title: '空管理',
 			activeMenu: '/kong/order'
@@ -97,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
 		children: [
 			{
 				path: '/kong/order',
-				component: () => import('@/views/list/modules/order.vue'),
+				component: () => import('@/views/kong/modules/order.vue'),
 				name: '空列表',
 				meta: {
 					path: '/kong/order',
@@ -107,7 +66,7 @@ const routes: Array<RouteRecordRaw> = [
 			},
 			{
 				path: '/kong/draft',
-				component: () => import('@/views/list/modules/draft.vue'),
+				component: () => import('@/views/kong/modules/draft.vue'),
 				name: '空草稿',
 				meta: {
 					path: '/kong/draft',

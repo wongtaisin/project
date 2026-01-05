@@ -142,8 +142,8 @@
 </template>
 
 <script lang="ts" setup>
-import { downloadFile } from '@/axios/common';
-import { ref } from 'vue';
+import { downloadFile } from '@/api/common'
+import { ref } from 'vue'
 
 // 折叠面板激活项
 const activeNames = ref([1, 2, 3, 4])

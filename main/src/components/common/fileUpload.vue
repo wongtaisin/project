@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getInfo } from '@/pinia/actions'
+import { getInfo } from '@/store/actions'
 import { getToken, loginUserKey } from '@/utils/auth'
 import { ElMessage } from 'element-plus'
 import { computed } from 'vue'

@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
  */
-import { logout } from '@/axios/login'
+import { logout } from '@/api/login'
 import { getToken, loginUserKey } from '@/utils/auth'
 import cache from '@/utils/cache'
 import errorCode from '@/utils/errorCode'

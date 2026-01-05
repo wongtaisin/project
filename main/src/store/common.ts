@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
  */
-import $axios from '@/axios/index'
+import $axios from '@/api/index'
 import { ElMessage } from 'element-plus'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'

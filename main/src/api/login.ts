@@ -8,7 +8,7 @@
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
-import $axios from '@/axios/index'
+import $axios from '@/api/index'
 
 // 登录方法
 export const login = (params: any) => {

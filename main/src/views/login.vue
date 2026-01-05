@@ -69,7 +69,6 @@
 <script setup lang="ts">
 import Code from '@/components/code.vue'
 import { setToken, setloginUserKey } from '@/utils/auth'
-import { decrypt, encrypt } from '@/utils/jsencrypt'
 import { FormInstance, FormRules } from 'element-plus'
 import Cookies from 'js-cookie'
 import { onMounted, reactive, ref } from 'vue'
@@ -150,7 +149,7 @@ const getCookie = () => {
 	const rememberMe = Cookies.get('rememberMe')
 
 	loginForm.username = username ?? ''
-	loginForm.password = password ? decrypt(password) : ''
+	loginForm.password = password ?? ''
 	loginForm.rememberMe = rememberMe === 'true'
 }
 
@@ -165,7 +164,7 @@ const handleLogin = async () => {
 		// 记住密码处理
 		if (loginForm.rememberMe) {
 			Cookies.set('username', loginForm.username, { expires: 30 })
-			Cookies.set('password', encrypt(loginForm.password), { expires: 30 })
+			Cookies.set('password', loginForm.password, { expires: 30 })
 			Cookies.set('rememberMe', String(loginForm.rememberMe), { expires: 30 })
 		} else {
 			Cookies.remove('username')
