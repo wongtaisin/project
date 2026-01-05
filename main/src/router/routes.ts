@@ -2,8 +2,8 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-16 18:46:56
- * @FilePath: \project\main\src\router\routes.ts
+ * @LastEditTime: 2026-01-05 14:44:08
+ * @FilePath: \main\src\router\routes.ts
  * @Description:
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
@@ -39,6 +39,12 @@ const routes: Array<RouteRecordRaw> = [
 			{
 				path: '/app/app-vue2/',
 				name: 'app-vue2',
+				meta: {},
+				component: () => import('@/qiankun/SubContainer.vue')
+			},
+			{
+				path: '/app/app-react19/:pathMatch(.*)*',
+				name: 'app-react19',
 				meta: {},
 				component: () => import('@/qiankun/SubContainer.vue')
 			}

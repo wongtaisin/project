@@ -62,6 +62,13 @@ const menu = ref<MenuItem[]>([
 		title: 'app-vue2',
 		path: '/app/app-vue2/#/home',
 		icon: 'icon-baozhuangleixing'
+	},
+	{
+		value: '006',
+		name: 'app-react19',
+		title: 'app-react19',
+		path: '/app/app-react19/Home',
+		icon: 'icon-react'
 	}
 ])
 

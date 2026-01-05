@@ -13,6 +13,13 @@ export default {
 			container: '#sub-container',
 			activeRule: '/app/app-vue2',
 			props: {}
+		},
+		{
+			name: 'app-react19',
+			entry: '//localhost:7003',
+			container: '#sub-container',
+			activeRule: '/app/app-react19',
+			props: {}
 		}
 	]
 }
