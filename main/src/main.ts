@@ -2,19 +2,19 @@
  * @Author: wingddd wongtaisin1024@gmail.com
  * @Date: 2024-11-13 08:05:37
  * @LastEditors: wingddd wongtaisin1024@gmail.com
- * @LastEditTime: 2024-12-14 17:07:22
- * @FilePath: \PCB-\src\main.ts
+ * @LastEditTime: 2026-01-05 14:31:03
+ * @FilePath: \main\src\main.ts
  * @Description: Vue应用入口文件
  *
  * Copyright (c) 2024 by wongtaisin1024@gmail.com, All Rights Reserved.
  */
+import { createApp, nextTick } from 'vue'
 
 // 导入必要的依赖
 import ElementPlus from 'element-plus'
-import { createApp } from 'vue'
 import App from './App.vue'
-import pinia from './store/index'
 import router from './router/index'
+import pinia from './store/index'
 
 // 导入样式文件
 import 'element-plus/dist/index.css'
@@ -33,3 +33,36 @@ const app = createApp(App)
 	.use(install) // 自定义工具
 
 app.mount('#app')
+
+// 导入乾坤微应用相关
+import { start } from 'qiankun'
+import { registerApps } from './qiankun/qiankun'
+
+// 注册子应用（不触发加载）
+registerApps()
+
+let started = false
+
+function tryStartQiankun() {
+	if (started) return
+
+	const container = document.querySelector('#sub-container')
+	if (!container) return
+
+	started = true
+	start({
+		sandbox: {
+			experimentalStyleIsolation: true // 开启实验性样式隔离
+		},
+		singular: false, // 开启单实例模式
+		prefetch: true // 开启预加载
+	})
+}
+
+// 首次尝试
+nextTick(tryStartQiankun)
+
+// 路由变化后再次尝试（兼容你现有结构）
+router.afterEach(() => {
+	nextTick(tryStartQiankun)
+})
